@@ -1,787 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Max Growth | Professional Agency</title>
 
-<title>Max Growth | Professional Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grad: linear-gradient(135deg, #00eaff, #0066ff);
+        }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<script src="https://cdn.tailwindcss.com"></script>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #111827;
+            overflow-x: hidden;
+        }
 
-<style>
+        /* Full Screen Menu Overlay */
+        #fullMenu {
+            position: fixed;
+            inset: 0;
+            background-color: black;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease-in-out;
+        }
 
-:root{
-  --grad: linear-gradient(135deg,#00eaff,#0066ff);
-}
+        #fullMenu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+        .menu-link {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            margin: 10px 0;
+            transition: 0.3s;
+            text-decoration: none;
+        }
 
-html{
-  scroll-behavior:smooth;
-}
+        .menu-link:hover { color: #00a2ff; transform: scale(1.05); }
 
-body{
-  font-family:'Poppins',sans-serif;
-  background:#ffffff;
-  color:#111827;
-  overflow-x:hidden;
-}
+        .close-menu { position: absolute; top: 30px; right: 30px; color: white; font-size: 2.5rem; cursor: pointer; }
 
-/* ================= NAVBAR ================= */
+        /* Hamburger Icon */
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; }
+        .hamburger span { display: block; width: 30px; height: 3px; background-color: black; border-radius: 10px; }
 
-.blue-gradient{
-  background:var(--grad);
-}
+        /* Custom WhatsApp Button */
+        .custom-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border: 2px solid #000000;
+            padding: 6px 6px 6px 25px;
+            border-radius: 100px;
+            color: #000000;
+            font-weight: 600;
+            font-size: clamp(16px, 4vw, 18px);
+            text-decoration: none;
+            transition: 0.3s;
+            max-width: 320px;
+            width: 90%;
+        }
 
-.hero-title{
-  line-height:1.1;
-  letter-spacing:-1px;
-}
+        .custom-contact-btn .arrow-icon {
+            background: #2563eb;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
 
-.modal{
-  transition:opacity .3s ease, transform .3s ease;
-}
+        .custom-contact-btn:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+        }
 
-.modal-active{
-  opacity:1 !important;
-  pointer-events:auto !important;
-  transform:scale(1) !important;
-}
+        /* Video Container */
+        .video-container {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 50px;
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
+            background: #000;
+        }
 
-.service-card{
-  transition:.4s;
-}
+        .service-card { transition: 0.4s; }
+        .service-card:hover {
+            border-color: #00a2ff;
+            box-shadow: 0 15px 30px rgba(0,162,255,0.1);
+            transform: translateY(-10px);
+        }
 
-.service-card:hover{
-  border-color:#00a2ff;
-  box-shadow:0 0 25px rgba(0,162,255,.15);
-  transform:translateY(-8px);
-}
-
-/* ================= PRICING SECTION ================= */
-
-.pricing-section{
-  position:relative;
-  padding:120px 20px;
-  background:#ffffff;
-  overflow:hidden;
-}
-
-.bg-cube-wrap{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  perspective:1000px;
-  z-index:1;
-  pointer-events:none;
-}
-
-.bg-cube{
-  width:260px;
-  height:260px;
-  position:relative;
-  transform-style:preserve-3d;
-  animation:rotateCube 24s linear infinite;
-  opacity:.06;
-}
-
-.bg-cube div{
-  position:absolute;
-  inset:0;
-  background:var(--grad);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:600;
-  color:#000;
-}
-
-.bg-cube div:nth-child(1){
-  transform:translateZ(130px);
-}
-
-.bg-cube div:nth-child(2){
-  transform:rotateY(90deg) translateZ(130px);
-}
-
-.bg-cube div:nth-child(3){
-  transform:rotateY(180deg) translateZ(130px);
-}
-
-.bg-cube div:nth-child(4){
-  transform:rotateY(-90deg) translateZ(130px);
-}
-
-.bg-cube div:nth-child(5){
-  transform:rotateX(90deg) translateZ(130px);
-}
-
-.bg-cube div:nth-child(6){
-  transform:rotateX(-90deg) translateZ(130px);
-}
-
-@keyframes rotateCube{
-  from{
-    transform:rotateX(0deg) rotateY(0deg);
-  }
-  to{
-    transform:rotateX(360deg) rotateY(360deg);
-  }
-}
-
-.pricing-header{
-  position:relative;
-  z-index:3;
-  text-align:center;
-  max-width:820px;
-  margin:auto auto 80px;
-}
-
-.pricing-header h2{
-  font-family:'Playfair Display',serif;
-  font-size:48px;
-  background:var(--grad);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-bottom:14px;
-}
-
-.pricing-header p{
-  font-size:16px;
-  color:#555;
-}
-
-.pricing-wrap{
-  position:relative;
-  z-index:3;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:40px;
-  max-width:1150px;
-  margin:auto;
-}
-
-.pricing-box{
-  position:relative;
-  background:rgba(255,255,255,.95);
-  border-radius:30px;
-  padding:44px 34px;
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:0 30px 80px rgba(0,0,0,.08);
-  transition:.6s cubic-bezier(.19,1,.22,1);
-  transform-style:preserve-3d;
-  opacity:0;
-  transform:translateY(60px);
-}
-
-.pricing-box.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.pricing-box:hover,
-.pricing-box.active{
-  transform:translateY(-18px) rotateX(6deg);
-  box-shadow:0 45px 120px rgba(0,102,255,.18);
-}
-
-.popular-tag{
-  position:absolute;
-  top:22px;
-  right:-48px;
-  background:var(--grad);
-  color:#fff;
-  font-size:12px;
-  font-weight:700;
-  padding:10px 50px;
-  transform:rotate(45deg);
-}
-
-.plan-title{
-  font-family:'Playfair Display',serif;
-  font-size:26px;
-  margin-bottom:14px;
-  color:#111;
-}
-
-.plan-price{
-  font-size:46px;
-  font-weight:700;
-  letter-spacing:-1px;
-  color:#111;
-}
-
-.plan-off{
-  font-size:13px;
-  color:#0066ff;
-  margin-bottom:18px;
-}
-
-.plan-desc{
-  font-size:14px;
-  color:#555;
-  margin-bottom:26px;
-}
-
-.plan-features{
-  list-style:none;
-  padding:0;
-  margin:0 0 32px;
-}
-
-.plan-features li{
-  font-size:14px;
-  margin-bottom:12px;
-  position:relative;
-  padding-left:22px;
-  color:#222;
-}
-
-.plan-features li::before{
-  content:"✔";
-  position:absolute;
-  left:0;
-  color:#00c6ff;
-}
-
-.cta-btn{
-  display:block;
-  text-align:center;
-  padding:14px;
-  border-radius:14px;
-  font-weight:600;
-  background:var(--grad);
-  color:#fff;
-  text-decoration:none;
-  transition:.4s;
-}
-
-.cta-btn:hover{
-  filter:brightness(1.1);
-  transform:translateY(-2px);
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-  .hero-title{
-    font-size:42px !important;
-  }
-
-  .pricing-header h2{
-    font-size:34px;
-  }
-
-  .pricing-section{
-    padding:90px 16px;
-  }
-
-}
-
-</style>
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.8rem !important; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
-<nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-
-        <div class="text-2xl md:text-3xl font-black italic tracking-tighter flex items-center gap-1">
-            <span class="text-blue-500">MAX</span><span class="text-black">GROWTH</span>
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl md:text-3xl font-black italic tracking-tighter">
+                <span class="text-blue-500">MAX</span>GROWTH
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
         </div>
+    </nav>
 
-        <button onclick="toggleModal()"
-            class="blue-gradient px-6 md:px-8 py-2 md:py-3 rounded-full text-white font-bold text-sm md:text-base hover:shadow-[0_0_20px_#00a2ff] transition flex items-center gap-2">
-            CONTACT
-            <i class="fas fa-chevron-right text-[10px]"></i>
-        </button>
-
-    </div>
-</nav>
-
-<!-- ================= HERO ================= -->
-
-<section class="min-h-screen flex items-center justify-center text-center px-4 pt-32 pb-20 bg-white">
-
-    <div class="max-w-4xl">
-
-        <div class="flex items-center justify-center gap-4 mb-8">
-
-            <a href="https://www.facebook.com"
-                class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-blue-600 transition">
-                <i class="fab fa-facebook-f text-black hover:text-white text-sm"></i>
-            </a>
-
-            <a href="https://www.instagram.com/sweerty.567/"
-                class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-pink-600 transition">
-                <i class="fab fa-instagram text-black hover:text-white text-sm"></i>
-            </a>
-
-            <a href="https://www.youtube.com"
-                class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-600 transition">
-                <i class="fab fa-youtube text-black hover:text-white text-sm"></i>
-            </a>
-
-        </div>
-
-        <h1 class="text-4xl md:text-7xl font-black hero-title mb-6 text-black">
-            We Don't <br>
-
-            <span class="bg-pink-500 px-3 inline-block transform -rotate-1 text-white">
-                Just Run
-            </span>
-
-            <br>
-
-            Ads. We Build Empires.
-        </h1>
-
-        <p class="max-w-xl text-gray-600 text-sm md:text-lg mx-auto mb-10 leading-relaxed">
-            Helping Shopify brands scale globally with
-            <span class="text-black font-bold italic">
-                AI-driven marketing systems
-            </span>
-            and conversion-focused designs.
-        </p>
-
-        <a href="https://wa.me/918920327008?text=Auto:%20Hi%20Max%20Growth,%20I'm%20interested%20in%20your%20services!"
-            class="blue-gradient text-white font-black px-10 py-4 rounded-full text-base md:text-lg hover:shadow-[0_0_25px_#00a2ff] transition flex items-center gap-3 mx-auto max-w-max">
-
-            CHAT ON WHATSAPP
-            <i class="fab fa-whatsapp"></i>
-
-        </a>
-
+    <div id="fullMenu">
+        <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
+        <a href="services.html" class="menu-link">SERVICES</a>
+        <a href="about.html" class="menu-link">ABOUT US</a>
+        <a href="contact.html" class="menu-link">CONTACT</a>
+        <a href="blogs.html" class="menu-link">BLOGS</a>
     </div>
 
-</section>
-
-<!-- ================= STATS ================= -->
-
-<section class="py-10 px-4 bg-gray-100">
-
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-
-        <div class="bg-white p-8 rounded-3xl border border-gray-200 text-center md:text-left shadow-sm">
-
-            <h3 class="text-xl md:text-2xl font-extrabold mb-2 text-gray-700">
-                Average ROI Increase
-            </h3>
-
-            <div class="text-5xl md:text-6xl font-black text-pink-500 mb-2">
-                154.8%
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32 pb-20">
+        <div class="max-w-4xl w-full">
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="#" class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-blue-600 hover:text-white transition"><i class="fab fa-facebook-f text-sm"></i></a>
+                <a href="#" class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-pink-600 hover:text-white transition"><i class="fab fa-instagram text-sm"></i></a>
+                <a href="#" class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-600 hover:text-white transition"><i class="fab fa-youtube text-sm"></i></a>
             </div>
 
-            <p class="text-gray-500 text-xs md:text-sm leading-tight">
-                AI-powered analytics optimizes performance daily.
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
+                We Don't <br>
+                <span class="bg-pink-500 px-3 inline-block transform -rotate-1 text-white">Just Run</span>
+                <br> Ads. We Build Empires.
+            </h1>
+
+            <p class="max-w-xl text-gray-600 text-base md:text-lg mx-auto mb-10 leading-relaxed">
+                Helping Shopify brands scale globally with <span class="text-black font-bold italic">AI-driven marketing systems</span> and conversion-focused designs.
             </p>
 
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl border border-gray-200 text-center md:text-left shadow-sm">
-
-            <h3 class="text-xl md:text-2xl font-extrabold mb-2 text-gray-700">
-                Shopify Dev
-            </h3>
-
-            <p class="text-gray-500 text-xs md:text-sm mb-6">
-                High-speed conversion machines for global markets.
-            </p>
-
-            <button class="bg-black text-white px-6 py-2 rounded-full font-bold text-xs uppercase">
-                Build Your Store
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= SERVICES ================= -->
-
-<section id="services" class="py-20 px-4 bg-white">
-
-    <div class="max-w-7xl mx-auto">
-
-        <div class="text-center mb-12">
-
-            <h2 class="text-3xl md:text-5xl font-black mb-4 italic text-black">
-                OUR <span class="text-blue-500">SCALE</span> SYSTEMS
-            </h2>
-
-            <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
-
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-
-            <div class="service-card p-8 border border-gray-200 rounded-2xl bg-white">
-
-                <i class="fab fa-shopify text-blue-500 text-3xl mb-4"></i>
-
-                <h4 class="text-lg font-bold mb-3 uppercase tracking-tighter text-black">
-                    Liquid Programming
-                </h4>
-
-                <p class="text-gray-600 text-xs leading-relaxed">
-                    Custom Shopify development focused on extreme load speeds and conversion rate optimization.
-                </p>
-
-            </div>
-
-            <div class="service-card p-8 border border-gray-200 rounded-2xl bg-white">
-
-                <i class="fas fa-microchip text-blue-500 text-3xl mb-4"></i>
-
-                <h4 class="text-lg font-bold mb-3 uppercase tracking-tighter text-black">
-                    AI Ad Systems
-                </h4>
-
-                <p class="text-gray-600 text-xs leading-relaxed">
-                    Smart algorithms to reduce your CPA while scaling budgets internationally.
-                </p>
-
-            </div>
-
-            <div class="service-card p-8 border border-gray-200 rounded-2xl bg-white">
-
-                <i class="fas fa-search-dollar text-blue-500 text-3xl mb-4"></i>
-
-                <h4 class="text-lg font-bold mb-3 uppercase tracking-tighter text-black">
-                    Audit & Scale
-                </h4>
-
-                <p class="text-gray-600 text-xs leading-relaxed">
-                    Deep-dive funnel analysis to prepare your brand for scaling.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= PRICING ================= -->
-
-<section class="pricing-section">
-
-    <div class="bg-cube-wrap">
-
-        <div class="bg-cube">
-
-            <div>AI Agent</div>
-            <div>Web Developer</div>
-            <div>SEO Optimized</div>
-            <div>Ads Management</div>
-            <div>High Conversion</div>
-            <div>Fast Performance</div>
-
-        </div>
-
-    </div>
-
-    <div class="pricing-header">
-
-        <h2>Luxury Website Pricing Plans</h2>
-
-        <p>
-            Premium, conversion-focused web solutions crafted for serious businesses.
-        </p>
-
-    </div>
-
-    <div class="pricing-wrap">
-
-        <!-- BASIC -->
-
-        <div class="pricing-box">
-
-            <h3 class="plan-title">Basic Plan</h3>
-
-            <div class="plan-price">$399</div>
-
-            <p class="plan-desc">
-                Perfect for startups and small businesses starting online.
-            </p>
-
-            <ul class="plan-features">
-                <li>1–3 Pages Website</li>
-                <li>Mobile Optimized Design</li>
-                <li>Contact & Map Integration</li>
-                <li>Speed Optimization</li>
-            </ul>
-
-            <a href="#" class="cta-btn">
-                Get Started
-            </a>
-
-        </div>
-
-        <!-- STANDARD -->
-
-        <div class="pricing-box">
-
-            <div class="popular-tag">
-                Most Popular
-            </div>
-
-            <h3 class="plan-title">Standard Plan</h3>
-
-            <div class="plan-price">$799</div>
-
-            <div class="plan-off">
-                15% OFF Limited Time
-            </div>
-
-            <p class="plan-desc">
-                Ideal for growing brands needing SEO & performance.
-            </p>
-
-            <ul class="plan-features">
-                <li>5–7 Pages Website</li>
-                <li>Custom UI/UX Design</li>
-                <li>SEO Friendly Structure</li>
-                <li>Lead Forms & Analytics</li>
-            </ul>
-
-            <a href="#" class="cta-btn">
-                Get Started
-            </a>
-
-        </div>
-
-        <!-- PREMIUM -->
-
-        <div class="pricing-box">
-
-            <h3 class="plan-title">Premium Plan</h3>
-
-            <div class="plan-price">$1,299</div>
-
-            <div class="plan-off">
-                Best for Brands
-            </div>
-
-            <p class="plan-desc">
-                High-end UI, advanced SEO, and conversion strategy.
-            </p>
-
-            <ul class="plan-features">
-                <li>Advanced UI/UX</li>
-                <li>High Conversion Layout</li>
-                <li>Advanced SEO Setup</li>
-                <li>Priority Support</li>
-            </ul>
-
-            <a href="#" class="cta-btn">
-                Get Started
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= CONTACT MODAL ================= -->
-
-<div id="contactModal"
-    class="modal fixed inset-0 z-[100] h-full w-full bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none scale-95 flex items-center justify-center p-4">
-
-    <div class="relative bg-white p-8 md:p-10 rounded-3xl border border-gray-200 shadow-2xl max-w-md w-full">
-
-        <button onclick="toggleModal()"
-            class="absolute top-4 right-4 text-gray-500 hover:text-black">
-
-            <i class="fas fa-times"></i>
-
-        </button>
-
-        <h2 class="text-3xl font-black mb-2 text-center text-blue-500 italic">
-            Get Free Consultation
-        </h2>
-
-        <p class="text-center text-gray-500 text-xs mb-8">
-            Fill the details to scale your business.
-        </p>
-
-        <form action="https://formsubmit.co/ajazkhanllcusa@gmail.com" method="POST"
-            class="space-y-4">
-
-            <input type="hidden" name="_captcha" value="false">
-
-            <input type="text"
-                name="name"
-                placeholder="Full Name"
-                required
-                class="w-full px-5 py-3 rounded-xl bg-gray-100 border border-gray-300 text-black placeholder:text-gray-500 outline-none">
-
-            <input type="email"
-                name="email"
-                placeholder="Email Address"
-                required
-                class="w-full px-5 py-3 rounded-xl bg-gray-100 border border-gray-300 text-black placeholder:text-gray-500 outline-none">
-
-            <input type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                required
-                class="w-full px-5 py-3 rounded-xl bg-gray-100 border border-gray-300 text-black placeholder:text-gray-500 outline-none">
-
-            <textarea name="message"
-                placeholder="Your Business Goals..."
-                required
-                rows="3"
-                class="w-full px-5 py-3 rounded-xl bg-gray-100 border border-gray-300 text-black placeholder:text-gray-500 outline-none"></textarea>
-
-            <button type="submit"
-                class="w-full blue-gradient text-white font-black py-4 rounded-xl hover:shadow-[0_0_20px_#00a2ff] transition uppercase tracking-widest">
-
-                SEND REQUEST
-
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="py-16 px-4 border-t border-gray-200 bg-white">
-
-    <div class="max-w-7xl mx-auto">
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
-
-            <div class="space-y-6">
-
-                <div class="text-2xl font-black italic tracking-tighter flex items-center gap-1">
-                    <span class="text-blue-500">MAX</span>
-                    <span class="text-black">GROWTH</span>
+            <a href="https://wa.me/918920327008?text=Hi%20Max%20Growth%20Team,%20I%20want%20to%20scale%20my%20business!" class="custom-contact-btn mx-auto">
+                Contact us 
+                <div class="arrow-icon">
+                    <i class="fas fa-arrow-right"></i>
                 </div>
+            </a>
 
-                <p class="text-gray-500 text-xs leading-relaxed italic">
-                    Official Agency Partner. London - UK & Global Clients.
-                </p>
-
+            <div class="video-container mx-auto">
+                <iframe 
+                    width="100%" height="100%" 
+                    src="https://www.youtube.com/embed/UbEMvRP_yJA?autoplay=1&mute=1&loop=1&playlist=UbEMvRP_yJA&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
+                    title="Max Growth Video" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
-
-            <div>
-
-                <h5 class="text-blue-500 font-black uppercase tracking-tighter mb-6">
-                    Social
-                </h5>
-
-                <ul class="space-y-3 text-gray-600 font-bold">
-
-                    <li>
-                        <a href="https://www.facebook.com" class="hover:text-black transition">
-                            Facebook
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="https://www.instagram.com/sweerty.567/" class="hover:text-black transition">
-                            Instagram
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="https://www.youtube.com" class="hover:text-black transition">
-                            YouTube
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div>
-
-                <h5 class="text-blue-500 font-black uppercase tracking-tighter mb-6">
-                    Page
-                </h5>
-
-                <ul class="space-y-3 text-gray-600 font-bold">
-
-                    <li>
-                        <a href="#" class="hover:text-black transition">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#services" class="hover:text-black transition">
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#services" class="hover:text-black transition">
-                            Results
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="space-y-6">
-
-                <h5 class="text-blue-500 font-black uppercase tracking-tighter mb-6">
-                    Contact
-                </h5>
-
-                <div class="flex items-center gap-3 text-gray-600">
-
-                    <i class="fas fa-envelope text-blue-500"></i>
-
-                    <a href="mailto:ajazkhanllcusa@gmail.com"
-                        class="hover:text-black transition font-bold text-[11px] md:text-sm">
-
-                        ajazkhanllcusa@gmail.com
-
-                    </a>
-
-                </div>
-
-                <div class="flex items-center gap-3 text-gray-600">
-
-                    <i class="fab fa-whatsapp text-green-500 text-lg"></i>
-
-                    <a href="https://wa.me/918920327008?text=Auto:%20Hi!"
-                        class="hover:text-black transition font-bold">
-
-                        +91 89203 27008
-
-                    </a>
-
-                </div>
-
-            </div>
-
         </div>
+    </section>
 
-        <div
-            class="mt-16 pt-8 border-t border-gray-200 text-center text-gray-500 text-[10px] uppercase tracking-[4px]">
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100">
+                <h3 class="text-xl font-bold mb-2 text-gray-500">Average ROI Increase</h3>
+                <div class="text-6xl font-black text-pink-500 mb-4">154.8%</div>
+                <p class="text-gray-400 text-sm">AI-powered analytics optimizes performance daily.</p>
+            </div>
+            <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100">
+                <h3 class="text-xl font-bold mb-2 text-gray-500">Shopify Dev</h3>
+                <p class="text-gray-400 text-sm mb-8">High-speed conversion machines for global markets.</p>
+                <button class="bg-black text-white px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest">Build Your Store</button>
+            </div>
+        </div>
+    </section>
 
-            © 2026 Max Growth Agency. All Rights Reserved.
+    <section id="services" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black mb-4 italic">OUR <span class="text-blue-500">SCALE</span> SYSTEMS</h2>
+                <div class="h-1.5 w-24 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card p-10 border border-gray-100 rounded-3xl bg-white">
+                    <i class="fab fa-shopify text-blue-500 text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4 uppercase">Liquid Programming</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Custom Shopify development focused on extreme load speeds and conversion.</p>
+                </div>
+                <div class="service-card p-10 border border-gray-100 rounded-3xl bg-white">
+                    <i class="fas fa-microchip text-blue-500 text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4 uppercase">AI Ad Systems</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Smart algorithms to reduce your CPA while scaling budgets internationally.</p>
+                </div>
+                <div class="service-card p-10 border border-gray-100 rounded-3xl bg-white">
+                    <i class="fas fa-search-dollar text-blue-500 text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4 uppercase">Audit & Scale</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Deep-dive funnel analysis to prepare your brand for massive scaling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="text-2xl font-black italic mb-4">
+                <span class="text-blue-500">MAX</span>GROWTH
+            </div>
+            <p class="text-gray-400 text-[10px] uppercase tracking-[5px]">© 2026 Max Growth Agency. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('fullMenu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+    </script>
+</body>
+</html>
