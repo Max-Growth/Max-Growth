@@ -6,9 +6,11 @@
 
 <title>Max Growth</title>
 
+<!-- GOOGLE FONT -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
@@ -17,6 +19,10 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -39,21 +45,30 @@ header{
 }
 
 .logo img{
-  width:260px;
+  width:220px;
   max-width:100%;
+  height:auto;
+  display:block;
   object-fit:contain;
 }
 
+/* MENU BUTTON */
+
 .menu-btn{
-  width:50px;
-  height:50px;
-  border-radius:14px;
+  width:58px;
+  height:58px;
+  border-radius:16px;
   background:linear-gradient(135deg,#0057ff,#00a2ff);
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
-  box-shadow:0 0 20px rgba(0,102,255,.4);
+  box-shadow:0 0 25px rgba(0,102,255,.45);
+  transition:.3s;
+}
+
+.menu-btn:hover{
+  transform:scale(1.05);
 }
 
 .menu-btn i{
@@ -82,14 +97,15 @@ header{
   background:linear-gradient(135deg,#0066ff,#2da8ff);
   color:#fff;
   display:inline-block;
-  padding:8px 18px;
-  border-radius:8px;
+  padding:10px 22px;
+  border-radius:12px;
   transform:rotate(2deg);
+  box-shadow:0 0 30px rgba(0,102,255,.45);
 }
 
 .hero-desc{
-  margin-top:30px;
-  max-width:900px;
+  margin-top:35px;
+  max-width:920px;
   margin-left:auto;
   margin-right:auto;
   font-size:22px;
@@ -108,8 +124,8 @@ header{
   align-items:center;
   justify-content:center;
   gap:12px;
-  margin-top:45px;
-  padding:22px 48px;
+  margin-top:50px;
+  padding:22px 52px;
   border-radius:70px;
   text-decoration:none;
   background:linear-gradient(90deg,#0057ff,#1d8fff);
@@ -117,7 +133,7 @@ header{
   font-size:24px;
   font-weight:700;
   transition:.3s;
-  box-shadow:0 0 30px rgba(0,102,255,.35);
+  box-shadow:0 0 35px rgba(0,102,255,.35);
 }
 
 .cta-btn:hover{
@@ -127,7 +143,7 @@ header{
 /* ================= VIDEO ================= */
 
 .video-section{
-  margin-top:70px;
+  margin-top:80px;
   width:100%;
   display:flex;
   justify-content:center;
@@ -151,17 +167,17 @@ header{
 /* ================= SOCIAL ================= */
 
 .socials{
-  margin-top:55px;
+  margin-top:60px;
   display:flex;
   justify-content:center;
-  gap:14px;
+  gap:15px;
   flex-wrap:wrap;
 }
 
 .socials a{
-  width:55px;
-  height:55px;
-  border-radius:14px;
+  width:58px;
+  height:58px;
+  border-radius:15px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -194,7 +210,7 @@ header{
 /* ================= OFFERS ================= */
 
 .offer-wrapper{
-  margin-top:50px;
+  margin-top:60px;
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:20px;
@@ -205,14 +221,14 @@ header{
 
 .offer-card{
   background:linear-gradient(145deg,#091425,#101d33);
-  padding:28px;
-  border-radius:22px;
+  padding:30px;
+  border-radius:24px;
   border:1px solid rgba(255,255,255,.06);
   transition:.3s;
 }
 
 .offer-card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-6px);
   box-shadow:0 0 25px rgba(0,102,255,.2);
 }
 
@@ -252,10 +268,10 @@ header{
 }
 
 .close-btn{
-  width:55px;
-  height:55px;
+  width:58px;
+  height:58px;
   background:#0057ff;
-  border-radius:14px;
+  border-radius:16px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -330,23 +346,49 @@ header{
 
 @media(max-width:768px){
 
+  header{
+    padding:18px 16px;
+  }
+
   .logo img{
     width:180px;
   }
 
+  .menu-btn{
+    width:52px;
+    height:52px;
+  }
+
+  .hero{
+    padding-top:10px;
+  }
+
   .hero-title{
+    margin-top:40px;
     font-size:38px;
     line-height:1.25;
+    letter-spacing:-1px;
+  }
+
+  .highlight{
+    padding:8px 18px;
+    border-radius:10px;
   }
 
   .hero-desc{
     font-size:16px;
     line-height:1.8;
+    margin-top:28px;
   }
 
   .cta-btn{
     font-size:18px;
     padding:18px 34px;
+    margin-top:40px;
+  }
+
+  .video-section{
+    margin-top:55px;
   }
 
   .video-box iframe{
@@ -366,6 +408,7 @@ header{
 
   .offer-wrapper{
     grid-template-columns:1fr;
+    margin-top:45px;
   }
 
   .offer-card{
@@ -396,9 +439,12 @@ header{
 <header>
 
   <div class="logo">
-    
-    <!-- YOUR LOGO -->
-    <img src="YOUR-LOGO-IMAGE.png" alt="Max Growth Logo">
+
+    <!-- APNA DIRECT LOGO IMAGE LINK YAHA PASTE KARO -->
+    <img 
+      src="PASTE-YOUR-DIRECT-LOGO-LINK-HERE"
+      alt="Max Growth Logo"
+    >
 
   </div>
 
@@ -528,8 +574,6 @@ header{
       Fill this form and our team will contact you shortly
       for your business growth strategy.
     </p>
-
-    <!-- FORM -->
 
     <form action="https://formsubmit.co/kajaj8837@gmail.com" method="POST">
 
