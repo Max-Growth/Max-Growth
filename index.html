@@ -1,144 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Max Growth | Professional Web Developer & Growth Agency</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-<style>
-*{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{ background:#000814; font-family:'Poppins',sans-serif; overflow-x:hidden; color:#fff; }
-
-/* ================= HEADER ================= */
-header{ width:100%; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:10; }
-.logo img{ width:220px; max-width:100%; height:auto; display:block; object-fit:contain; border-radius: 50%; border: 2px solid #0057ff; }
-
-.menu-btn{ width:58px; height:58px; border-radius:16px; background:linear-gradient(135deg,#0057ff,#00a2ff); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 0 25px rgba(0,102,255,.45); transition:.3s; }
-.menu-btn:hover{ transform:scale(1.05); }
-
-/* ================= HERO ================= */
-.hero{ width:100%; min-height:100vh; padding:20px 20px 80px; text-align:center; }
-.hero-title{ margin-top:60px; font-size:68px; line-height:1.15; font-weight:800; letter-spacing:-2px; }
-.highlight{ background:linear-gradient(135deg,#0066ff,#2da8ff); color:#fff; display:inline-block; padding:10px 22px; border-radius:12px; transform:rotate(2deg); box-shadow:0 0 30px rgba(0,102,255,.45); }
-.hero-desc{ margin-top:35px; max-width:920px; margin-left:auto; margin-right:auto; font-size:22px; line-height:1.8; color:#d8d8d8; }
-
-/* ================= ROI & STATS (NEW ADDED) ================= */
-.stats-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 1100px; margin: 60px auto; text-align: left; }
-.stat-card { background: #0a1629; padding: 40px; border-radius: 35px; border: 1px solid rgba(255,255,255,.05); cursor: pointer; transition: 0.5s; }
-.blue-glow { border-color: #0057ff !important; box-shadow: 0 0 30px rgba(0,87,255,0.4); }
-.pink-btn { background: #ff007f; color: white; padding: 10px 20px; border-radius: 50px; font-size: 12px; font-weight: bold; margin-bottom: 20px; display: inline-block; }
-.counter-text { font-size: 75px; font-weight: 900; color: #00a2ff; margin-bottom: 10px; }
-.tag { border: 1px solid #ff007f; color: #ff007f; padding: 5px 15px; border-radius: 50px; font-size: 10px; font-weight: bold; margin-right: 10px; }
-
-/* ================= BUTTONS & OTHERS ================= */
-.cta-btn{ display:inline-flex; align-items:center; justify-content:center; gap:12px; margin-top:50px; padding:22px 52px; border-radius:70px; text-decoration:none; background:linear-gradient(90deg,#0057ff,#1d8fff); color:#fff; font-size:24px; font-weight:700; transition:.3s; box-shadow:0 0 35px rgba(0,102,255,.35); }
-.socials{ margin-top:60px; display:flex; justify-content:center; gap:15px; }
-.socials a{ width:58px; height:58px; border-radius:15px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; transition:.3s; text-decoration: none; }
-.whatsapp{ background:#25d366; } .instagram{ background:#222; } .facebook{ background:#1877f2; } .youtube{ background:#ff0000; }
-
-/* POPUP MENU STYLES SAME AS BEFORE */
-.popup-menu{ position:fixed; top:0; right:-100%; width:100%; height:100%; background:#020814; z-index:999; overflow-y:auto; transition:.4s; padding:25px; }
-.popup-menu.active{ right:0; }
-
-@media(max-width:768px){
-  .hero-title{ font-size:38px; }
-  .stats-container{ grid-template-columns: 1fr; }
-  .counter-text{ font-size: 50px; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Growth | Official Agency - UK & International Shopify Specialists</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #030712; color: #ffffff; overflow-x: hidden; }
+        .pink-bg { background-color: #ff007f; }
+        .blue-gradient { background: linear-gradient(90deg, #0057ff, #00a2ff); }
+        .hero-title { line-height: 0.9; letter-spacing: -2px; }
+        
+        /* Modal Style for Popup Form */
+        .modal { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+        .modal-active { opacity: 1 !important; pointer-events: auto !important; transform: scale(1) !important; }
+        
+        /* Footer Visual Reference Placeholder Style */
+        .image-placeholder { background-color: #111827; border: 2px dashed #374151; display: flex; align-items: center; justify-content: center; color: #4b5563; }
+    </style>
 </head>
-<body>
+<body class="relative">
 
-<header>
-  <div class="logo">
-    <img src="https://github.com/kajaj8837-cloud.png" alt="Max Growth Logo">
-  </div>
-  <div class="menu-btn" onclick="openMenu()">
-    <i class="fa-solid fa-bars"></i>
-  </div>
-</header>
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-3xl font-black italic tracking-tighter flex items-center gap-1">
+                <span class="text-blue-500">MAX</span><span>GROWTH</span>
+            </div>
+            
+            <div class="space-x-8 flex items-center">
+                <div class="hidden md:flex space-x-6 text-sm uppercase tracking-widest font-semibold text-gray-300">
+                    <a href="#services" class="hover:text-white transition">Services</a>
+                    <a href="https://wa.me/918920327008?text=Hello%20Max%20Growth%20Team!%20I'm%20interested%20in%20scaling%20my%20business." class="hover:text-white transition flex items-center gap-2"><i class="fab fa-whatsapp"></i> Chat</a>
+                </div>
+                <button onclick="toggleModal()" class="blue-gradient px-8 py-3 rounded-full text-white font-black hover:shadow-[0_0_20px_#00a2ff] transition flex items-center gap-2">
+                    CONTACT <i class="fas fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-<section class="hero">
-  <h1 class="hero-title">
-    We Don’t <span class="highlight">Just Run</span><br> Ads. We Build<br> Empires.
-  </h1>
+    <section class="h-screen flex items-center justify-center text-center px-6 pt-24 pb-16 relative">
+        <div class="absolute inset-0 z-0 bg-[url('your-background-visual.jpg')] bg-cover bg-center opacity-10"></div>
+        <div class="relative z-10 max-w-4xl">
+            <div class="flex items-center justify-center gap-4 mb-12">
+                <a href="#" class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-facebook-f text-white"></i></a>
+                <a href="https://www.instagram.com/sweerty.567/" class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-instagram text-white"></i></a>
+                <a href="#" class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-youtube text-white"></i></a>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-black hero-title mb-8">
+                We Don't <br>
+                <span class="pink-bg px-4 inline-block transform -rotate-1 text-white">Just Run</span><br>
+                Ads. We Build Empires.
+            </h1>
+            
+            <p class="max-w-xl text-gray-400 text-lg md:text-xl mx-auto mb-12">
+                Helping Shopify brands scale globally with <span class="text-white font-bold">AI-driven marketing systems</span> and conversion-focused store designs.
+            </p>
+            
+            <a href="https://wa.me/918920327008?text=Hello%20Max%20Growth%20Team!%20I'm%20interested%20in%20scaling%20my%20business." 
+               class="blue-gradient text-white font-black px-12 py-5 rounded-full text-xl hover:shadow-[0_0_25px_#00a2ff] transition flex items-center gap-3 mx-auto max-w-max">
+                CHAT ON WHATSAPP <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </section>
 
-  <p class="hero-desc">
-    Professional <b>Shopify & Web Development</b> systems, AI-powered growth strategies designed to dominate the international market.
-  </p>
+    <section class="py-24 px-6 bg-gray-950/50 relative">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+            <div class="bg-gray-900 p-10 rounded-3xl border border-gray-800 card-box">
+                <h3 class="text-3xl font-extrabold mb-4 leading-tight">Average ROI Increase <br> For Clients</h3>
+                <div class="text-8xl font-black text-pink-500 mb-6">154.8%</div>
+                <p class="text-gray-500">AI-powered analytics continuously optimizes performance and reduces cost.</p>
+            </div>
+            
+            <div class="bg-gray-900 p-10 rounded-3xl border border-gray-800 card-box">
+                <h3 class="text-3xl font-extrabold mb-4 leading-tight">Shopify Store <br> & Product Hunting</h3>
+                <p class="text-gray-400 mb-8 max-w-xl">We don't just build sites; we build high-speed conversion machines optimized for global markets.</p>
+                <button class="bg-white text-black px-8 py-3 rounded-full font-bold uppercase text-sm">Build Your Store</button>
+            </div>
+        </div>
+    </section>
 
-  <div class="stats-container">
-    <div class="stat-card" onclick="this.classList.toggle('blue-glow')">
-        <div class="pink-btn">ACTIVATE FREE SHIELD <i class="fas fa-shield-alt"></i></div>
-        <h3>Web Dev Strategy</h3>
-        <p style="color: #a0aec0; margin-top: 15px;">Building custom high-performance stores with Liquid and AI optimization for maximum ROI.</p>
-    </div>
+    <section id="services" class="py-24 px-6 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-16 tracking-tight">Our Scale Systems</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card p-10 border border-gray-800 rounded-3xl bg-black">
+                    <h4 class="text-2xl font-bold mb-3 text-blue-400 uppercase">Shopify Dev</h4>
+                    <p class="text-gray-400 text-sm">Custom Liquid programming for ultimate speed and specific market optimization.</p>
+                </div>
+                <div class="service-card p-10 border border-gray-800 rounded-3xl bg-black">
+                    <h4 class="text-2xl font-bold mb-3 text-blue-400 uppercase">AI Analytics</h4>
+                    <p class="text-gray-400 text-sm">Real-time data streams optimized by AI to reduce CPA and maximize conversion.</p>
+                </div>
+                <div class="service-card p-10 border border-gray-800 rounded-3xl bg-black">
+                    <h4 class="text-2xl font-bold mb-3 text-blue-400 uppercase">CRO Audit</h4>
+                    <p class="text-gray-400 text-sm">Identify conversion leaks in your store's funnel and implement solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="stat-card" onclick="this.classList.toggle('blue-glow')">
-        <p style="font-weight:bold; color: #718096; letter-spacing: 2px;">AVERAGE ROI INCREASE</p>
-        <div class="counter-text"><span id="roi-num">0</span>%</div>
-        <p style="color: #a0aec0; margin-bottom: 20px;">Scaled stores profitably with data-backed conversion tactics.</p>
-        <div>
-            <span class="tag">DETECTION ACCURACY</span>
-            <span class="tag">RESPONSE BOOST</span>
+    <div id="contactModal" class="modal fixed inset-0 z-[100] h-full w-full bg-black/90 backdrop-blur-sm opacity-0 pointer-events-none scale-90 flex items-center justify-center p-6">
+        <div class="relative bg-gray-950 p-10 rounded-3xl border border-gray-800 shadow-[0_0_50px_#00a2ff] max-w-xl w-full">
+            <button onclick="toggleModal()" class="absolute top-5 right-5 text-gray-500 hover:text-white transition"><i class="fas fa-times text-xl"></i></button>
+            
+            <h2 class="text-4xl font-extrabold mb-8 text-center text-blue-400">Get Free Consultation</h2>
+            
+            <form action="https://formsubmit.co/ajazkhanllcusa@gmail.com" method="POST" class="space-y-6">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <input type="text" name="name" placeholder="Full Name" required class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder:text-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                <input type="email" name="email" placeholder="Email Address" required class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder:text-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                <input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder:text-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                <textarea name="message" placeholder="Tell us about your business goals..." required rows="4" class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder:text-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"></textarea>
+                
+                <button type="submit" class="w-full blue-gradient text-white font-black px-10 py-4 rounded-full text-lg hover:shadow-[0_0_20px_#00a2ff] transition">
+                    SEND REQUEST
+                </button>
+            </form>
         </div>
     </div>
-  </div>
 
-  <a href="https://wa.me/918920327008?text=I%20want%20to%20scale%20my%20business" class="cta-btn">
-    CONTACT US <i class="fa-solid fa-arrow-right"></i>
-  </a>
+    <footer class="py-24 px-6 border-t border-gray-800 bg-gray-950 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="image-placeholder h-48 rounded-2xl mb-16 text-xs uppercase tracking-widest">[Get In Touch Visual Image - Place your graphic here]</div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
+                <div class="space-y-6 col-span-2 md:col-span-1">
+                    <div class="text-3xl font-black italic tracking-tighter flex items-center gap-1">
+                        <span class="text-blue-500">MAX</span><span>GROWTH</span>
+                    </div>
+                    <p class="text-gray-500 text-xs">Official Agency Partner. London - UK & Global Clients.</p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="text-gray-600 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/sweerty.567/" class="text-gray-600 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h5 class="text-lg font-extrabold uppercase tracking-widest mb-6">Social</h5>
+                    <p class="text-gray-500 font-medium">Link 1</p>
+                    <p class="text-gray-500 font-medium">Link 2</p>
+                    <p class="text-gray-500 font-medium">Link 3</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <h5 class="text-lg font-extrabold uppercase tracking-widest mb-6">Page</h5>
+                    <p class="text-gray-500 font-medium">Home</p>
+                    <p class="text-gray-500 font-medium">About</p>
+                    <p class="text-gray-500 font-medium">Results</p>
+                </div>
+                
+                <div class="space-y-6 col-span-2 md:col-span-1 border-l border-gray-800 pl-8">
+                    <h5 class="text-lg font-extrabold uppercase tracking-widest mb-6">Contact</h5>
+                    <div class="flex items-center gap-3 text-gray-400 group">
+                        <i class="fas fa-envelope text-blue-400"></i>
+                        <a href="mailto:ajazkhanllcusa@gmail.com" class="hover:text-white transition break-words">ajazkhanllcusa@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-400 group">
+                        <i class="fab fa-whatsapp text-green-400 text-lg"></i>
+                        <a href="https://wa.me/918920327008?text=Hello%20Max%20Growth%20Team!%20I'm%20interested%20in%20scaling%20my%20business." class="hover:text-white transition">+91 89203 27008</a>
+                    </div>
+                    <p class="text-gray-600 text-xs">Mon-Sat | 9 AM - 6 PM (GMT)</p>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-10 border-t border-gray-900 text-center text-gray-600 text-xs uppercase tracking-widest">
+                © 2026 Max Growth Agency. London, UK | Scalup Inc. Partner
+            </div>
+        </div>
+    </footer>
 
-  <div class="socials">
-    <a href="https://www.facebook.com" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/sweerty.567/" class="instagram"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://www.youtube.com" class="youtube"><i class="fa-brands fa-youtube"></i></a>
-    <a href="https://wa.me/918920327008" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-  </div>
-</section>
-
-<div class="popup-menu" id="popupMenu">
-  <div class="close-btn" onclick="closeMenu()"><i class="fa-solid fa-xmark"></i></div>
-  <div style="max-width:700px; margin:40px auto; background:#0d1727; padding:40px; border-radius:30px; border:1px solid rgba(255,255,255,.05);">
-    <h2>Get Free Consultation</h2>
-    <form action="https://formsubmit.co/kajaj8837@gmail.com" method="POST" style="margin-top:30px;">
-      <input type="text" name="name" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; background:#020814; border:none; color:white; border-radius:10px;" required>
-      <input type="email" name="email" placeholder="Email Address" style="width:100%; padding:15px; margin-bottom:15px; background:#020814; border:none; color:white; border-radius:10px;" required>
-      <textarea name="message" placeholder="Business Details" style="width:100%; height:120px; padding:15px; background:#020814; border:none; color:white; border-radius:10px;" required></textarea>
-      <button type="submit" style="width:100%; padding:20px; margin-top:20px; border-radius:50px; background:#0057ff; color:white; border:none; font-weight:bold; cursor:pointer;">SEND REQUEST</button>
-    </form>
-  </div>
-</div>
-
-<script>
-function openMenu(){ document.getElementById("popupMenu").classList.add("active"); }
-function closeMenu(){ document.getElementById("popupMenu").classList.remove("active"); }
-
-// COUNTER ANIMATION
-function runCounter() {
-    let target = 154.8;
-    let current = 0;
-    let step = target / 50; 
-    let element = document.getElementById("roi-num");
-    
-    let interval = setInterval(() => {
-        current += step;
-        if (current >= target) {
-            element.innerText = target;
-            clearInterval(interval);
-        } else {
-            element.innerText = current.toFixed(1);
+    <script>
+        function toggleModal() {
+            document.getElementById('contactModal').classList.toggle('modal-active');
+            document.body.classList.toggle('overflow-hidden');
         }
-    }, 30);
-}
-window.onload = runCounter;
-</script>
-
+    </script>
 </body>
 </html>
