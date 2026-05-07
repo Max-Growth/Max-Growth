@@ -5,125 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Max Growth | Professional Agency</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <style>
-        :root {
-            --grad: linear-gradient(135deg, #00eaff, #0066ff);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #ffffff; color: #111827; overflow-x: hidden; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #ffffff;
-            color: #111827;
-            overflow-x: hidden;
-        }
-
-        /* Full Screen Menu Overlay */
-        #fullMenu {
-            position: fixed;
-            inset: 0;
-            background-color: black;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.4s ease-in-out;
-        }
-
-        #fullMenu.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .menu-link {
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            font-weight: 800;
-            color: white;
-            text-transform: uppercase;
-            margin: 10px 0;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-
+        /* Full Screen Menu */
+        #fullMenu { position: fixed; inset: 0; background-color: black; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: all 0.4s ease-in-out; }
+        #fullMenu.active { opacity: 1; pointer-events: auto; }
+        .menu-link { font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 800; color: white; text-transform: uppercase; margin: 10px 0; transition: 0.3s; text-decoration: none; }
         .menu-link:hover { color: #00a2ff; transform: scale(1.05); }
-
         .close-menu { position: absolute; top: 30px; right: 30px; color: white; font-size: 2.5rem; cursor: pointer; }
 
-        /* Hamburger Icon */
-        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; }
+        /* Hamburger */
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; z-index: 101; }
         .hamburger span { display: block; width: 30px; height: 3px; background-color: black; border-radius: 10px; }
 
-        /* Custom WhatsApp Button */
-        .custom-contact-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #ffffff;
-            border: 2px solid #000000;
-            padding: 6px 6px 6px 25px;
-            border-radius: 100px;
-            color: #000000;
-            font-weight: 600;
-            font-size: clamp(16px, 4vw, 18px);
-            text-decoration: none;
-            transition: 0.3s;
-            max-width: 320px;
-            width: 90%;
-        }
+        /* 3D Background Canvas */
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.6; }
 
-        .custom-contact-btn .arrow-icon {
-            background: #2563eb;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-left: 15px;
-            flex-shrink: 0;
-        }
+        /* Services Section Container */
+        #services { position: relative; overflow: hidden; background: #ffffff; }
 
-        .custom-contact-btn:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            transform: translateY(-3px);
-        }
-
-        /* Video Container */
-        .video-container {
-            width: 100%;
-            max-width: 900px;
-            margin-top: 50px;
-            position: relative;
-            aspect-ratio: 16/9;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
-            background: #000;
-        }
-
-        .service-card { transition: 0.4s; }
-        .service-card:hover {
-            border-color: #00a2ff;
-            box-shadow: 0 15px 30px rgba(0,162,255,0.1);
-            transform: translateY(-10px);
-        }
-
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.8rem !important; }
-        }
+        /* Buttons & Video */
+        .custom-contact-btn { display: inline-flex; align-items: center; justify-content: space-between; background: #ffffff; border: 2px solid #000000; padding: 6px 6px 6px 25px; border-radius: 100px; color: #000000; font-weight: 600; font-size: clamp(16px, 4vw, 18px); text-decoration: none; transition: 0.3s; max-width: 320px; width: 90%; }
+        .custom-contact-btn .arrow-icon { background: #2563eb; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-left: 15px; flex-shrink: 0; }
+        .video-container { width: 100%; max-width: 900px; margin-top: 50px; position: relative; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3); background: #000; }
+        
+        /* Service Card Styles */
+        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; border: 1px solid #e5e7eb; min-height: 200px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .service-card:hover { border-color: #2563eb; transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .service-card.active { border-color: #2563eb; background: #ffffff; border-width: 2px; }
+        
+        /* Typing Text Style */
+        .description-text { color: #059669; /* Deep Green */ font-size: 0.9rem; line-height: 1.6; margin-top: 12px; font-weight: 500; }
+        .typing-cursor::after { content: '|'; animation: blink 0.7s infinite; color: #10b981; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
 <body>
@@ -141,105 +62,172 @@
 
     <div id="fullMenu">
         <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
-        <a href="services.html" class="menu-link">SERVICES</a>
-        <a href="about.html" class="menu-link">ABOUT US</a>
-        <a href="contact.html" class="menu-link">CONTACT</a>
-        <a href="blogs.html" class="menu-link">BLOGS</a>
+        <a href="#services" class="menu-link" onclick="toggleMenu()">SERVICES</a>
+        <a href="#" class="menu-link" onclick="toggleMenu()">ABOUT US</a>
+        <a href="#" class="menu-link" onclick="toggleMenu()">CONTACT</a>
     </div>
 
     <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32 pb-20">
         <div class="max-w-4xl w-full">
-            <div class="flex justify-center gap-4 mb-8">
-                <a href="#" class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-blue-600 hover:text-white transition"><i class="fab fa-facebook-f text-sm"></i></a>
-                <a href="#" class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-pink-600 hover:text-white transition"><i class="fab fa-instagram text-sm"></i></a>
-                <a href="#" class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-600 hover:text-white transition"><i class="fab fa-youtube text-sm"></i></a>
-            </div>
-
             <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
                 We Don't <br>
                 <span class="bg-pink-500 px-3 inline-block transform -rotate-1 text-white">Just Run</span>
                 <br> Ads. We Build Empires.
             </h1>
-
             <p class="max-w-xl text-gray-600 text-base md:text-lg mx-auto mb-10 leading-relaxed">
-                Helping Shopify brands scale globally with <span class="text-black font-bold italic">AI-driven marketing systems</span> and conversion-focused designs.
+                Helping Shopify brands scale globally with <span class="font-bold italic text-black">AI-driven marketing.</span>
             </p>
-
-            <a href="https://wa.me/918920327008?text=Hi%20Max%20Growth%20Team,%20I%20want%20to%20scale%20my%20business!" class="custom-contact-btn mx-auto">
+            <a href="https://wa.me/918920327008" class="custom-contact-btn mx-auto">
                 Contact us 
-                <div class="arrow-icon">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
+                <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
             </a>
-
             <div class="video-container mx-auto">
-                <iframe 
-                    width="100%" height="100%" 
-                    src="https://www.youtube.com/embed/UbEMvRP_yJA?autoplay=1&mute=1&loop=1&playlist=UbEMvRP_yJA&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
-                    title="Max Growth Video" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UbEMvRP_yJA?autoplay=1&mute=1&loop=1&playlist=UbEMvRP_yJA&controls=0" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-4 bg-gray-50">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100">
-                <h3 class="text-xl font-bold mb-2 text-gray-500">Average ROI Increase</h3>
-                <div class="text-6xl font-black text-pink-500 mb-4">154.8%</div>
-                <p class="text-gray-400 text-sm">AI-powered analytics optimizes performance daily.</p>
-            </div>
-            <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100">
-                <h3 class="text-xl font-bold mb-2 text-gray-500">Shopify Dev</h3>
-                <p class="text-gray-400 text-sm mb-8">High-speed conversion machines for global markets.</p>
-                <button class="bg-black text-white px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest">Build Your Store</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-24 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
+    <section id="services" class="py-24 px-6">
+        <div id="canvas-container"></div> <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-black mb-4 italic">OUR <span class="text-blue-500">SCALE</span> SYSTEMS</h2>
+                <h2 class="text-4xl md:text-6xl font-black mb-4 italic uppercase">OUR <span class="text-blue-500">SERVICES</span></h2>
                 <div class="h-1.5 w-24 bg-blue-600 mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400 font-medium tracking-widest text-xs uppercase">Click a card to explore</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card p-10 border border-gray-100 rounded-3xl bg-white">
-                    <i class="fab fa-shopify text-blue-500 text-4xl mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4 uppercase">Liquid Programming</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Custom Shopify development focused on extreme load speeds and conversion.</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card p-8 rounded-3xl" onclick="typeInCard(this, 'Custom high-speed Shopify architecture using Liquid/Hydrogen. We focus on conversion rate optimization (CRO) and sub-1-second load times.')">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fas fa-code"></i></div>
+                    <h4 class="text-xl font-bold uppercase tracking-tight">Web Development</h4>
+                    <p class="text-gray-400 text-sm mt-1">Shopify & Custom Stores</p>
+                    <div class="description-text"></div>
                 </div>
-                <div class="service-card p-10 border border-gray-100 rounded-3xl bg-white">
-                    <i class="fas fa-microchip text-blue-500 text-4xl mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4 uppercase">AI Ad Systems</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Smart algorithms to reduce your CPA while scaling budgets internationally.</p>
+
+                <div class="service-card p-8 rounded-3xl" onclick="typeInCard(this, 'Scaling to $10k+/day spend with profit. We use data-driven CBO strategies and creative testing frameworks to dominate Meta ecosystems.')">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fab fa-facebook"></i></div>
+                    <h4 class="text-xl font-bold uppercase tracking-tight">Meta Ads</h4>
+                    <p class="text-gray-400 text-sm mt-1">Facebook & Instagram</p>
+                    <div class="description-text"></div>
                 </div>
-                <div class="service-card p-10 border border-gray-100 rounded-3xl bg-white">
-                    <i class="fas fa-search-dollar text-blue-500 text-4xl mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4 uppercase">Audit & Scale</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Deep-dive funnel analysis to prepare your brand for massive scaling.</p>
+
+                <div class="service-card p-8 rounded-3xl" onclick="typeInCard(this, 'Maximize your ROAS with Performance Max (PMax), Search, and Shopping ads. We target high-intent customers ready to purchase.')">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fab fa-google"></i></div>
+                    <h4 class="text-xl font-bold uppercase tracking-tight">Google Ads</h4>
+                    <p class="text-gray-400 text-sm mt-1">Search & Shopping</p>
+                    <div class="description-text"></div>
+                </div>
+
+                <div class="service-card p-8 rounded-3xl" onclick="typeInCard(this, 'High-converting UGC, viral ad scripts, and creative direction that hooks the audience and lowers your acquisition cost.')">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fas fa-video"></i></div>
+                    <h4 class="text-xl font-bold uppercase tracking-tight">Content Marketing</h4>
+                    <p class="text-gray-400 text-sm mt-1">UGC & Viral Ads</p>
+                    <div class="description-text"></div>
+                </div>
+
+                <div class="service-card p-8 rounded-3xl" onclick="typeInCard(this, 'Organic growth and community management. We turn your social followers into brand ambassadors and repeat customers.')">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fas fa-users"></i></div>
+                    <h4 class="text-xl font-bold uppercase tracking-tight">SMM</h4>
+                    <p class="text-gray-400 text-sm mt-1">Social Media Management</p>
+                    <div class="description-text"></div>
+                </div>
+
+                <div class="service-card p-8 rounded-3xl" onclick="typeInCard(this, 'Dominating SERPs with technical SEO and keyword authority. Build a sustainable organic revenue stream for your brand.')">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fas fa-chart-line"></i></div>
+                    <h4 class="text-xl font-bold uppercase tracking-tight">SEO</h4>
+                    <p class="text-gray-400 text-sm mt-1">Organic Ranking</p>
+                    <div class="description-text"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-gray-100">
+    <footer class="py-12 border-t border-gray-100 bg-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="text-2xl font-black italic mb-4">
-                <span class="text-blue-500">MAX</span>GROWTH
-            </div>
+            <div class="text-2xl font-black italic mb-4"><span class="text-blue-500">MAX</span>GROWTH</div>
             <p class="text-gray-400 text-[10px] uppercase tracking-[5px]">© 2026 Max Growth Agency. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Menu Toggle
         function toggleMenu() {
             const menu = document.getElementById('fullMenu');
             menu.classList.toggle('active');
             document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
         }
+
+        // Typing Effect Logic
+        let typingTimer = null;
+        function typeInCard(card, text) {
+            document.querySelectorAll('.service-card').forEach(c => {
+                c.classList.remove('active');
+                c.querySelector('.description-text').innerText = "";
+                c.querySelector('.description-text').classList.remove('typing-cursor');
+            });
+            if (typingTimer) clearTimeout(typingTimer);
+            card.classList.add('active');
+            const target = card.querySelector('.description-text');
+            target.classList.add('typing-cursor');
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    target.innerHTML += text.charAt(i);
+                    i++;
+                    typingTimer = setTimeout(type, 20);
+                } else {
+                    target.classList.remove('typing-cursor');
+                }
+            }
+            type();
+        }
+
+        // --- 3D BACKGROUND ANIMATION (Three.js) ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        // Create a floating Mesh/Grid
+        const geometry = new THREE.IcosahedronGeometry(2, 1);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x2563eb, 
+            wireframe: true, 
+            transparent: true, 
+            opacity: 0.1 
+        });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        // Add small particles
+        const partGeom = new THREE.BufferGeometry();
+        const partCount = 100;
+        const posArray = new Float32Array(partCount * 3);
+        for(let i=0; i<partCount*3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 10;
+        }
+        partGeom.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const partMat = new THREE.PointsMaterial({ size: 0.02, color: 0x000000 });
+        const partMesh = new THREE.Points(partGeom, partMat);
+        scene.add(partMesh);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.x += 0.001;
+            sphere.rotation.y += 0.001;
+            partMesh.rotation.y += 0.0005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
     </script>
 </body>
 </html>
