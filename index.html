@@ -3,618 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max Growth | Professional Web Developer & Growth Agency</title>
 
-<title>Max Growth</title>
-
-<!-- GOOGLE FONT -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#000814;
-  font-family:'Poppins',sans-serif;
-  overflow-x:hidden;
-  color:#fff;
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ background:#000814; font-family:'Poppins',sans-serif; overflow-x:hidden; color:#fff; }
 
 /* ================= HEADER ================= */
+header{ width:100%; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:10; }
+.logo img{ width:220px; max-width:100%; height:auto; display:block; object-fit:contain; border-radius: 50%; border: 2px solid #0057ff; }
 
-header{
-  width:100%;
-  padding:18px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:relative;
-  z-index:10;
-}
-
-.logo img{
-  width:220px;
-  max-width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-}
-
-/* MENU BUTTON */
-
-.menu-btn{
-  width:58px;
-  height:58px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#0057ff,#00a2ff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  box-shadow:0 0 25px rgba(0,102,255,.45);
-  transition:.3s;
-}
-
-.menu-btn:hover{
-  transform:scale(1.05);
-}
-
-.menu-btn i{
-  font-size:24px;
-  color:#fff;
-}
+.menu-btn{ width:58px; height:58px; border-radius:16px; background:linear-gradient(135deg,#0057ff,#00a2ff); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 0 25px rgba(0,102,255,.45); transition:.3s; }
+.menu-btn:hover{ transform:scale(1.05); }
 
 /* ================= HERO ================= */
+.hero{ width:100%; min-height:100vh; padding:20px 20px 80px; text-align:center; }
+.hero-title{ margin-top:60px; font-size:68px; line-height:1.15; font-weight:800; letter-spacing:-2px; }
+.highlight{ background:linear-gradient(135deg,#0066ff,#2da8ff); color:#fff; display:inline-block; padding:10px 22px; border-radius:12px; transform:rotate(2deg); box-shadow:0 0 30px rgba(0,102,255,.45); }
+.hero-desc{ margin-top:35px; max-width:920px; margin-left:auto; margin-right:auto; font-size:22px; line-height:1.8; color:#d8d8d8; }
 
-.hero{
-  width:100%;
-  min-height:100vh;
-  padding:20px 20px 80px;
-  text-align:center;
-}
+/* ================= ROI & STATS (NEW ADDED) ================= */
+.stats-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 1100px; margin: 60px auto; text-align: left; }
+.stat-card { background: #0a1629; padding: 40px; border-radius: 35px; border: 1px solid rgba(255,255,255,.05); cursor: pointer; transition: 0.5s; }
+.blue-glow { border-color: #0057ff !important; box-shadow: 0 0 30px rgba(0,87,255,0.4); }
+.pink-btn { background: #ff007f; color: white; padding: 10px 20px; border-radius: 50px; font-size: 12px; font-weight: bold; margin-bottom: 20px; display: inline-block; }
+.counter-text { font-size: 75px; font-weight: 900; color: #00a2ff; margin-bottom: 10px; }
+.tag { border: 1px solid #ff007f; color: #ff007f; padding: 5px 15px; border-radius: 50px; font-size: 10px; font-weight: bold; margin-right: 10px; }
 
-.hero-title{
-  margin-top:60px;
-  font-size:68px;
-  line-height:1.15;
-  font-weight:800;
-  letter-spacing:-2px;
-}
+/* ================= BUTTONS & OTHERS ================= */
+.cta-btn{ display:inline-flex; align-items:center; justify-content:center; gap:12px; margin-top:50px; padding:22px 52px; border-radius:70px; text-decoration:none; background:linear-gradient(90deg,#0057ff,#1d8fff); color:#fff; font-size:24px; font-weight:700; transition:.3s; box-shadow:0 0 35px rgba(0,102,255,.35); }
+.socials{ margin-top:60px; display:flex; justify-content:center; gap:15px; }
+.socials a{ width:58px; height:58px; border-radius:15px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; transition:.3s; text-decoration: none; }
+.whatsapp{ background:#25d366; } .instagram{ background:#222; } .facebook{ background:#1877f2; } .youtube{ background:#ff0000; }
 
-.highlight{
-  background:linear-gradient(135deg,#0066ff,#2da8ff);
-  color:#fff;
-  display:inline-block;
-  padding:10px 22px;
-  border-radius:12px;
-  transform:rotate(2deg);
-  box-shadow:0 0 30px rgba(0,102,255,.45);
-}
-
-.hero-desc{
-  margin-top:35px;
-  max-width:920px;
-  margin-left:auto;
-  margin-right:auto;
-  font-size:22px;
-  line-height:1.8;
-  color:#d8d8d8;
-}
-
-.hero-desc b{
-  color:#fff;
-}
-
-/* ================= BUTTON ================= */
-
-.cta-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-top:50px;
-  padding:22px 52px;
-  border-radius:70px;
-  text-decoration:none;
-  background:linear-gradient(90deg,#0057ff,#1d8fff);
-  color:#fff;
-  font-size:24px;
-  font-weight:700;
-  transition:.3s;
-  box-shadow:0 0 35px rgba(0,102,255,.35);
-}
-
-.cta-btn:hover{
-  transform:translateY(-5px);
-}
-
-/* ================= VIDEO ================= */
-
-.video-section{
-  margin-top:80px;
-  width:100%;
-  display:flex;
-  justify-content:center;
-}
-
-.video-box{
-  width:100%;
-  max-width:950px;
-  border-radius:30px;
-  overflow:hidden;
-  border:2px solid rgba(255,255,255,.08);
-  box-shadow:0 0 40px rgba(0,102,255,.25);
-}
-
-.video-box iframe{
-  width:100%;
-  height:520px;
-  border:none;
-}
-
-/* ================= SOCIAL ================= */
-
-.socials{
-  margin-top:60px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.socials a{
-  width:58px;
-  height:58px;
-  border-radius:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  text-decoration:none;
-  font-size:24px;
-  transition:.3s;
-}
-
-.socials a:hover{
-  transform:translateY(-5px);
-}
-
-.facebook{
-  background:#1877f2;
-}
-
-.instagram{
-  background:#222;
-}
-
-.youtube{
-  background:#ff0000;
-}
-
-.whatsapp{
-  background:#25d366;
-}
-
-/* ================= OFFERS ================= */
-
-.offer-wrapper{
-  margin-top:60px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  max-width:900px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.offer-card{
-  background:linear-gradient(145deg,#091425,#101d33);
-  padding:30px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.06);
-  transition:.3s;
-}
-
-.offer-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 25px rgba(0,102,255,.2);
-}
-
-.offer-card i{
-  font-size:34px;
-  color:#1d8fff;
-  margin-bottom:18px;
-}
-
-.offer-card h3{
-  font-size:24px;
-  margin-bottom:12px;
-}
-
-.offer-card p{
-  color:#d4d4d4;
-  line-height:1.7;
-}
-
-/* ================= POPUP FORM ================= */
-
-.popup-menu{
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:100%;
-  height:100%;
-  background:#020814;
-  z-index:999;
-  overflow-y:auto;
-  transition:.4s;
-  padding:25px;
-}
-
-.popup-menu.active{
-  right:0;
-}
-
-.close-btn{
-  width:58px;
-  height:58px;
-  background:#0057ff;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-left:auto;
-  cursor:pointer;
-}
-
-.close-btn i{
-  font-size:24px;
-  color:#fff;
-}
-
-.form-box{
-  max-width:700px;
-  margin:40px auto;
-  background:linear-gradient(145deg,#081321,#111f36);
-  padding:40px 30px;
-  border-radius:30px;
-  border:1px solid rgba(255,255,255,.06);
-}
-
-.form-box h2{
-  font-size:42px;
-  margin-bottom:15px;
-}
-
-.form-box p{
-  color:#d2d2d2;
-  line-height:1.8;
-  margin-bottom:30px;
-}
-
-.input-group{
-  margin-bottom:22px;
-}
-
-.input-group input,
-.input-group textarea{
-  width:100%;
-  padding:18px 20px;
-  border:none;
-  border-radius:16px;
-  background:#0d1727;
-  color:#fff;
-  font-size:17px;
-  outline:none;
-}
-
-.input-group textarea{
-  height:140px;
-  resize:none;
-}
-
-.submit-btn{
-  width:100%;
-  border:none;
-  padding:20px;
-  border-radius:60px;
-  background:linear-gradient(90deg,#0057ff,#1d8fff);
-  color:#fff;
-  font-size:20px;
-  font-weight:700;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.submit-btn:hover{
-  transform:scale(1.02);
-}
-
-/* ================= MOBILE ================= */
+/* POPUP MENU STYLES SAME AS BEFORE */
+.popup-menu{ position:fixed; top:0; right:-100%; width:100%; height:100%; background:#020814; z-index:999; overflow-y:auto; transition:.4s; padding:25px; }
+.popup-menu.active{ right:0; }
 
 @media(max-width:768px){
-
-  header{
-    padding:18px 16px;
-  }
-
-  .logo img{
-    width:180px;
-  }
-
-  .menu-btn{
-    width:52px;
-    height:52px;
-  }
-
-  .hero{
-    padding-top:10px;
-  }
-
-  .hero-title{
-    margin-top:40px;
-    font-size:38px;
-    line-height:1.25;
-    letter-spacing:-1px;
-  }
-
-  .highlight{
-    padding:8px 18px;
-    border-radius:10px;
-  }
-
-  .hero-desc{
-    font-size:16px;
-    line-height:1.8;
-    margin-top:28px;
-  }
-
-  .cta-btn{
-    font-size:18px;
-    padding:18px 34px;
-    margin-top:40px;
-  }
-
-  .video-section{
-    margin-top:55px;
-  }
-
-  .video-box iframe{
-    height:240px;
-  }
-
-  .socials{
-    gap:10px;
-  }
-
-  .socials a{
-    width:46px;
-    height:46px;
-    font-size:20px;
-    border-radius:12px;
-  }
-
-  .offer-wrapper{
-    grid-template-columns:1fr;
-    margin-top:45px;
-  }
-
-  .offer-card{
-    padding:22px;
-  }
-
-  .offer-card h3{
-    font-size:20px;
-  }
-
-  .form-box{
-    padding:28px 20px;
-  }
-
-  .form-box h2{
-    font-size:30px;
-  }
-
+  .hero-title{ font-size:38px; }
+  .stats-container{ grid-template-columns: 1fr; }
+  .counter-text{ font-size: 50px; }
 }
-
 </style>
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header>
-
   <div class="logo">
-
-    <!-- APNA DIRECT LOGO IMAGE LINK YAHA PASTE KARO -->
-    <img 
-      src="PASTE-YOUR-DIRECT-LOGO-LINK-HERE"
-      alt="Max Growth Logo"
-    >
-
+    <img src="https://github.com/kajaj8837-cloud.png" alt="Max Growth Logo">
   </div>
-
   <div class="menu-btn" onclick="openMenu()">
     <i class="fa-solid fa-bars"></i>
   </div>
-
 </header>
 
-<!-- ================= HERO ================= -->
-
 <section class="hero">
-
   <h1 class="hero-title">
-    We Don’t
-    <span class="highlight">Just Run</span><br>
-    Ads. We Build<br>
-    Empires.
+    We Don’t <span class="highlight">Just Run</span><br> Ads. We Build<br> Empires.
   </h1>
 
   <p class="hero-desc">
-    We create <b>high-converting marketing systems</b>,
-    powerful branding, and AI-powered growth strategies
-    that help your business dominate online.
+    Professional <b>Shopify & Web Development</b> systems, AI-powered growth strategies designed to dominate the international market.
   </p>
 
-  <a href="https://wa.me/918920327008?text=Hello%20I%20want%20to%20grow%20my%20business" class="cta-btn">
-    CONTACT US
-    <i class="fa-solid fa-arrow-right"></i>
+  <div class="stats-container">
+    <div class="stat-card" onclick="this.classList.toggle('blue-glow')">
+        <div class="pink-btn">ACTIVATE FREE SHIELD <i class="fas fa-shield-alt"></i></div>
+        <h3>Web Dev Strategy</h3>
+        <p style="color: #a0aec0; margin-top: 15px;">Building custom high-performance stores with Liquid and AI optimization for maximum ROI.</p>
+    </div>
+
+    <div class="stat-card" onclick="this.classList.toggle('blue-glow')">
+        <p style="font-weight:bold; color: #718096; letter-spacing: 2px;">AVERAGE ROI INCREASE</p>
+        <div class="counter-text"><span id="roi-num">0</span>%</div>
+        <p style="color: #a0aec0; margin-bottom: 20px;">Scaled stores profitably with data-backed conversion tactics.</p>
+        <div>
+            <span class="tag">DETECTION ACCURACY</span>
+            <span class="tag">RESPONSE BOOST</span>
+        </div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/918920327008?text=I%20want%20to%20scale%20my%20business" class="cta-btn">
+    CONTACT US <i class="fa-solid fa-arrow-right"></i>
   </a>
 
-  <!-- VIDEO -->
-
-  <div class="video-section">
-
-    <div class="video-box">
-
-      <iframe
-      src="https://www.youtube.com/embed/UbEMvRP_yJA?autoplay=1&mute=1&loop=1&playlist=UbEMvRP_yJA"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-      </iframe>
-
-    </div>
-
-  </div>
-
-  <!-- SOCIAL ICONS -->
-
   <div class="socials">
-
-    <a href="https://www.facebook.com" target="_blank" class="facebook">
-      <i class="fa-brands fa-facebook-f"></i>
-    </a>
-
-    <a href="https://www.instagram.com/sweerty.567/" target="_blank" class="instagram">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="https://www.youtube.com" target="_blank" class="youtube">
-      <i class="fa-brands fa-youtube"></i>
-    </a>
-
-    <a href="https://wa.me/918920327008" target="_blank" class="whatsapp">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
+    <a href="https://www.facebook.com" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/sweerty.567/" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.youtube.com" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://wa.me/918920327008" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
   </div>
-
-  <!-- OFFERS -->
-
-  <div class="offer-wrapper">
-
-    <div class="offer-card">
-      <i class="fa-solid fa-chart-line"></i>
-      <h3>Facebook Ads</h3>
-      <p>
-        High-converting ad campaigns that generate leads
-        and increase business growth fast.
-      </p>
-    </div>
-
-    <div class="offer-card">
-      <i class="fa-solid fa-globe"></i>
-      <h3>Website Design</h3>
-      <p>
-        Modern premium websites optimized for mobile,
-        speed, and conversions.
-      </p>
-    </div>
-
-    <div class="offer-card">
-      <i class="fa-solid fa-robot"></i>
-      <h3>AI Automation</h3>
-      <p>
-        Smart AI systems that automate customer handling
-        and business operations.
-      </p>
-    </div>
-
-    <div class="offer-card">
-      <i class="fa-solid fa-bullhorn"></i>
-      <h3>Brand Growth</h3>
-      <p>
-        Professional branding strategies designed to
-        scale your business faster.
-      </p>
-    </div>
-
-  </div>
-
 </section>
 
-<!-- ================= POPUP FORM ================= -->
-
 <div class="popup-menu" id="popupMenu">
-
-  <div class="close-btn" onclick="closeMenu()">
-    <i class="fa-solid fa-xmark"></i>
-  </div>
-
-  <div class="form-box">
-
+  <div class="close-btn" onclick="closeMenu()"><i class="fa-solid fa-xmark"></i></div>
+  <div style="max-width:700px; margin:40px auto; background:#0d1727; padding:40px; border-radius:30px; border:1px solid rgba(255,255,255,.05);">
     <h2>Get Free Consultation</h2>
-
-    <p>
-      Fill this form and our team will contact you shortly
-      for your business growth strategy.
-    </p>
-
-    <form action="https://formsubmit.co/kajaj8837@gmail.com" method="POST">
-
-      <input type="hidden" name="_captcha" value="false">
-
-      <div class="input-group">
-        <input type="text" name="name" placeholder="Full Name" required>
-      </div>
-
-      <div class="input-group">
-        <input type="email" name="email" placeholder="Email Address" required>
-      </div>
-
-      <div class="input-group">
-        <input type="text" name="phone" placeholder="Phone Number" required>
-      </div>
-
-      <div class="input-group">
-        <textarea name="message" placeholder="Tell us about your business..." required></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn">
-        SEND REQUEST
-      </button>
-
+    <form action="https://formsubmit.co/kajaj8837@gmail.com" method="POST" style="margin-top:30px;">
+      <input type="text" name="name" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; background:#020814; border:none; color:white; border-radius:10px;" required>
+      <input type="email" name="email" placeholder="Email Address" style="width:100%; padding:15px; margin-bottom:15px; background:#020814; border:none; color:white; border-radius:10px;" required>
+      <textarea name="message" placeholder="Business Details" style="width:100%; height:120px; padding:15px; background:#020814; border:none; color:white; border-radius:10px;" required></textarea>
+      <button type="submit" style="width:100%; padding:20px; margin-top:20px; border-radius:50px; background:#0057ff; color:white; border:none; font-weight:bold; cursor:pointer;">SEND REQUEST</button>
     </form>
-
   </div>
-
 </div>
 
 <script>
+function openMenu(){ document.getElementById("popupMenu").classList.add("active"); }
+function closeMenu(){ document.getElementById("popupMenu").classList.remove("active"); }
 
-function openMenu(){
-  document.getElementById("popupMenu").classList.add("active");
+// COUNTER ANIMATION
+function runCounter() {
+    let target = 154.8;
+    let current = 0;
+    let step = target / 50; 
+    let element = document.getElementById("roi-num");
+    
+    let interval = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            element.innerText = target;
+            clearInterval(interval);
+        } else {
+            element.innerText = current.toFixed(1);
+        }
+    }, 30);
 }
-
-function closeMenu(){
-  document.getElementById("popupMenu").classList.remove("active");
-}
-
+window.onload = runCounter;
 </script>
 
 </body>
