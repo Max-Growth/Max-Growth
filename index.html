@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>ScalUpIT</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020814;
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  width:100%;
+  padding:22px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  flex-direction:column;
+}
+
+.logo h1{
+  font-size:44px;
+  line-height:40px;
+  font-weight:800;
+  background:linear-gradient(90deg,#7d2cff,#ff2cb7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.logo p{
+  font-size:12px;
+  letter-spacing:2px;
+  color:#555;
+  margin-top:4px;
+}
+
+.menu-btn{
+  width:52px;
+  height:52px;
+  background:#ff2cb7;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(255,44,183,.4);
+}
+
+.menu-btn i{
+  font-size:24px;
+  color:#fff;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  width:100%;
+  min-height:100vh;
+  padding:10px 22px 80px;
+  position:relative;
+}
+
+/* ================= SOCIAL ICONS ================= */
+
+.socials{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.socials a{
+  width:76px;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.socials a:hover{
+  transform:translateY(-6px) scale(1.05);
+}
+
+.facebook{
+  background:#35589b;
+  color:#fff;
+}
+
+.instagram{
+  background:#222;
+  color:#fff;
+}
+
+.youtube{
+  background:#e70000;
+  color:#fff;
+}
+
+.whatsapp{
+  background:#2edb65;
+  color:#fff;
+}
+
+/* ================= TEXT ================= */
+
+.hero-content{
+  margin-top:80px;
+  text-align:center;
+}
+
+.hero-title{
+  font-size:58px;
+  font-weight:800;
+  line-height:1.18;
+  letter-spacing:-1px;
+}
+
+.highlight{
+  background:#ff2cb7;
+  color:#000;
+  display:inline-block;
+  padding:10px 18px;
+  transform:rotate(2deg);
+  margin:0 6px;
+  font-weight:800;
+}
+
+.hero-desc{
+  margin-top:35px;
+  color:#e5e5e5;
+  font-size:22px;
+  line-height:1.7;
+  font-weight:300;
+}
+
+.hero-desc b{
+  color:#fff;
+}
+
+/* ================= BUTTON ================= */
+
+.cta-btn{
+  margin-top:45px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  background:linear-gradient(90deg,#ff2cb7,#ff4ac2);
+  color:#fff;
+  text-decoration:none;
+  padding:22px 46px;
+  border-radius:70px;
+  font-size:28px;
+  font-weight:700;
+  box-shadow:0 0 30px rgba(255,44,183,.4);
+  transition:.3s;
+}
+
+.cta-btn:hover{
+  transform:scale(1.05);
+}
+
+.play-btn{
+  margin:70px auto 0;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.play-btn i{
+  font-size:42px;
+  color:#000;
+  margin-left:8px;
+}
+
+/* ================= POPUP MENU ================= */
+
+.popup-menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:100%;
+  height:100%;
+  background:#050b16;
+  z-index:999;
+  transition:.4s;
+  padding:30px 22px;
+}
+
+.popup-menu.active{
+  right:0;
+}
+
+.close-btn{
+  width:55px;
+  height:55px;
+  background:#ff2cb7;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-left:auto;
+  cursor:pointer;
+}
+
+.close-btn i{
+  font-size:24px;
+}
+
+.offer-box{
+  margin-top:70px;
+  background:linear-gradient(145deg,#0e1727,#131f36);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:35px 28px;
+  box-shadow:0 0 30px rgba(255,44,183,.15);
+}
+
+.offer-box h2{
+  font-size:42px;
+  margin-bottom:18px;
+  color:#ff2cb7;
+}
+
+.offer-box p{
+  font-size:22px;
+  line-height:1.7;
+  color:#ddd;
+}
+
+.offer-list{
+  margin-top:28px;
+}
+
+.offer-list li{
+  list-style:none;
+  margin-bottom:18px;
+  font-size:21px;
+  color:#fff;
+}
+
+.offer-list li i{
+  color:#2edb65;
+  margin-right:10px;
+}
+
+.offer-btn{
+  width:100%;
+  margin-top:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  background:linear-gradient(90deg,#ff2cb7,#ff4ac2);
+  color:#fff;
+  padding:22px;
+  border-radius:60px;
+  font-size:24px;
+  font-weight:700;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .logo h1{
+    font-size:30px;
+  }
+
+  .hero-title{
+    font-size:34px;
+  }
+
+  .hero-desc{
+    font-size:17px;
+  }
+
+  .cta-btn{
+    font-size:20px;
+    padding:18px 35px;
+  }
+
+  .offer-box h2{
+    font-size:30px;
+  }
+
+  .offer-box p,
+  .offer-list li{
+    font-size:17px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+  <div class="logo">
+    <h1>ScalUpIT</h1>
+    <p>SCALE BEYOND LIMITS</p>
+  </div>
+
+  <div class="menu-btn" onclick="openMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <!-- SOCIALS -->
+
+  <div class="socials">
+
+    <a href="https://www.facebook.com" target="_blank" class="facebook">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="https://www.instagram.com/sweerty.567/" target="_blank" class="instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://www.youtube.com" target="_blank" class="youtube">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+
+    <a href="https://wa.me/918920327008" target="_blank" class="whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="hero-content">
+
+    <h1 class="hero-title">
+      We Don’t
+      <span class="highlight">Just Run</span><br>
+      Ads. We Build<br>
+      Empires.
+    </h1>
+
+    <p class="hero-desc">
+      We believe in pairing <b>innovative brand design</b> with
+      <b>conversion-focused systems</b> to build a digital presence
+      that <b>doesn’t just exist – it dominates.</b>
+    </p>
+
+    <a href="https://wa.me/918920327008?text=Hello%20I%20want%20to%20grow%20my%20business" class="cta-btn">
+      CONTACT US
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+    <div class="play-btn">
+      <i class="fa-solid fa-play"></i>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= POPUP MENU ================= -->
+
+<div class="popup-menu" id="popupMenu">
+
+  <div class="close-btn" onclick="closeMenu()">
+    <i class="fa-solid fa-xmark"></i>
+  </div>
+
+  <div class="offer-box">
+
+    <h2>🔥 Special Offer</h2>
+
+    <p>
+      Grow your business with high-converting ads, premium branding,
+      and modern digital systems built to dominate your market.
+    </p>
+
+    <ul class="offer-list">
+
+      <li>
+        <i class="fa-solid fa-circle-check"></i>
+        Facebook & Instagram Ads
+      </li>
+
+      <li>
+        <i class="fa-solid fa-circle-check"></i>
+        Premium Website Design
+      </li>
+
+      <li>
+        <i class="fa-solid fa-circle-check"></i>
+        AI Automation Systems
+      </li>
+
+      <li>
+        <i class="fa-solid fa-circle-check"></i>
+        Business Growth Strategy
+      </li>
+
+    </ul>
+
+    <a href="https://wa.me/918920327008?text=Hello%20I%20want%20the%20special%20offer" class="offer-btn">
+      CONTACT NOW
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+
+function openMenu(){
+  document.getElementById("popupMenu").classList.add("active");
+}
+
+function closeMenu(){
+  document.getElementById("popupMenu").classList.remove("active");
+}
+
+</script>
+
+</body>
+</html>
