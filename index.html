@@ -37,58 +37,179 @@ body{
 
 /* NAVBAR */
 
-.nav-blur{
-  backdrop-filter:blur(14px);
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
   background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e5e7eb;
 }
 
-/* BUTTON */
+.logo{
+  font-size:32px;
+  font-weight:900;
+  font-style:italic;
+  letter-spacing:-1px;
+}
 
 .blue-gradient{
   background:var(--grad);
 }
 
+.nav-link{
+  transition:.3s;
+}
+
+.nav-link:hover{
+  color:#0066ff;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+  display:none;
+  background:#fff;
+  border-top:1px solid #eee;
+}
+
+.mobile-menu.active{
+  display:block;
+}
+
 /* HERO */
 
+.hero{
+  padding:140px 20px 90px;
+}
+
 .hero-title{
-  line-height:1.05;
-  letter-spacing:-2px;
+  font-size:72px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-3px;
 }
 
-/* SERVICES */
-
-.service-card{
-  transition:.4s;
+.hero-card{
+  border-radius:32px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  box-shadow:0 15px 60px rgba(0,0,0,.06);
 }
 
-.service-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 20px 60px rgba(0,102,255,.12);
-}
+/* CARDS */
 
-/* PRICING */
-
+.service-card,
 .price-card{
   transition:.4s;
 }
 
+.service-card:hover,
 .price-card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 30px 70px rgba(0,102,255,.16);
+  transform:translateY(-10px);
+  box-shadow:0 25px 70px rgba(0,102,255,.12);
 }
 
 /* CONTACT */
 
 .contact-box{
+  border-radius:35px;
+  background:#fff;
   box-shadow:0 25px 70px rgba(0,0,0,.08);
+}
+
+/* INPUTS */
+
+.input{
+  width:100%;
+  background:#f3f4f6;
+  border:none;
+  padding:18px 20px;
+  border-radius:18px;
+  font-size:15px;
+  outline:none;
+}
+
+textarea{
+  resize:none;
+}
+
+/* BUTTON */
+
+.main-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 34px;
+  border-radius:18px;
+  color:#fff;
+  font-weight:700;
+  transition:.3s;
+}
+
+.main-btn:hover{
+  transform:translateY(-3px);
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
+  .logo{
+    font-size:24px;
+  }
+
+  .hero{
+    padding-top:120px;
+    text-align:center;
+  }
+
   .hero-title{
-    font-size:48px !important;
+    font-size:46px;
+    line-height:1.1;
+    letter-spacing:-2px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .hero-buttons a{
+    width:100%;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr !important;
+    gap:40px;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .section-title{
+    font-size:38px !important;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .pricing-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .footer-wrap{
+    flex-direction:column;
+    text-align:center;
   }
 
 }
@@ -100,42 +221,29 @@ body{
 
 <!-- NAVBAR -->
 
-<nav class="fixed top-0 left-0 w-full z-50 nav-blur border-b border-gray-200">
+<nav class="navbar">
 
   <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
 
-    <!-- LOGO -->
-
-    <div class="text-2xl md:text-3xl font-black italic tracking-tight">
+    <div class="logo">
       <span class="text-blue-500">MAX</span>
       <span class="text-black">GROWTH</span>
     </div>
 
-    <!-- MENU -->
+    <!-- DESKTOP MENU -->
 
     <div class="hidden md:flex items-center gap-10 font-semibold text-sm">
 
-      <a href="#home" class="hover:text-blue-500 transition">
-        Home
-      </a>
-
-      <a href="#services" class="hover:text-blue-500 transition">
-        Services
-      </a>
-
-      <a href="#pricing" class="hover:text-blue-500 transition">
-        Pricing
-      </a>
-
-      <a href="#contact" class="hover:text-blue-500 transition">
-        Contact
-      </a>
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#contact" class="nav-link">Contact</a>
 
     </div>
 
-    <!-- MOBILE MENU BUTTON -->
+    <!-- MOBILE BUTTON -->
 
-    <button onclick="toggleMenu()" class="md:hidden text-2xl">
+    <button onclick="toggleMenu()" class="md:hidden text-3xl">
       <i class="fas fa-bars"></i>
     </button>
 
@@ -143,9 +251,9 @@ body{
 
   <!-- MOBILE MENU -->
 
-  <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+  <div id="mobileMenu" class="mobile-menu md:hidden">
 
-    <div class="flex flex-col p-6 gap-5 font-semibold">
+    <div class="flex flex-col p-6 gap-5 font-semibold text-lg">
 
       <a href="#home">Home</a>
       <a href="#services">Services</a>
@@ -160,32 +268,32 @@ body{
 
 <!-- HERO -->
 
-<section id="home" class="min-h-screen flex items-center justify-center px-5 pt-32 pb-20 bg-white">
+<section id="home" class="hero">
 
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center hero-grid">
 
     <!-- LEFT -->
 
     <div>
 
-      <div class="flex items-center gap-4 mb-8">
+      <div class="flex items-center gap-4 mb-8 justify-center md:justify-start">
 
         <a href="https://www.instagram.com/sweerty.567/"
-        class="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center hover:bg-pink-500 hover:text-white transition">
+        class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center hover:bg-pink-500 hover:text-white transition">
 
           <i class="fab fa-instagram"></i>
 
         </a>
 
         <a href="https://wa.me/918920327008"
-        class="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center hover:bg-green-500 hover:text-white transition">
+        class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center hover:bg-green-500 hover:text-white transition">
 
           <i class="fab fa-whatsapp"></i>
 
         </a>
 
         <a href="mailto:ajazkhanllcusa@gmail.com"
-        class="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center hover:bg-blue-500 hover:text-white transition">
+        class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center hover:bg-blue-500 hover:text-white transition">
 
           <i class="fas fa-envelope"></i>
 
@@ -193,7 +301,7 @@ body{
 
       </div>
 
-      <h1 class="hero-title text-5xl md:text-7xl font-black mb-7">
+      <h1 class="hero-title mb-7">
 
         We Build <br>
 
@@ -203,24 +311,25 @@ body{
 
       </h1>
 
-      <p class="text-gray-600 text-lg leading-relaxed mb-10 max-w-xl">
+      <p class="text-gray-600 text-lg leading-relaxed mb-10 max-w-xl mx-auto md:mx-0">
 
-        Professional websites, AI automations, ads management,
-        and premium digital solutions to scale your business globally.
+        Premium websites, AI automation systems,
+        Shopify development, and ads management
+        built for global business growth.
 
       </p>
 
-      <div class="flex flex-wrap gap-4">
+      <div class="flex gap-4 hero-buttons">
 
         <a href="#contact"
-        class="blue-gradient text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition">
+        class="main-btn blue-gradient">
 
           GET STARTED
 
         </a>
 
         <a href="https://wa.me/918920327008"
-        class="border border-gray-300 px-8 py-4 rounded-2xl font-bold hover:bg-gray-100 transition">
+        class="main-btn border border-gray-300 text-black">
 
           WHATSAPP
 
@@ -232,41 +341,43 @@ body{
 
     <!-- RIGHT -->
 
-    <div class="grid grid-cols-2 gap-5">
+    <div class="grid grid-cols-2 gap-5 stats-grid">
 
-      <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+      <div class="hero-card p-8">
 
-        <div class="text-5xl font-black text-blue-500 mb-2">
+        <div class="text-5xl font-black text-blue-500 mb-3">
           154%
         </div>
 
-        <p class="text-gray-500 text-sm">
+        <p class="text-gray-500">
           Average ROI Increase
         </p>
 
       </div>
 
-      <div class="bg-black text-white p-8 rounded-3xl">
+      <div class="hero-card p-8 bg-black text-white">
 
-        <div class="text-5xl font-black mb-2">
+        <div class="text-5xl font-black mb-3">
           AI
         </div>
 
-        <p class="text-sm text-gray-300">
-          Smart Automation Systems
+        <p class="text-gray-300">
+          Smart Automation
         </p>
 
       </div>
 
-      <div class="col-span-2 bg-gradient-to-r from-blue-500 to-cyan-400 p-10 rounded-3xl text-white">
+      <div class="hero-card col-span-2 p-10 blue-gradient text-white">
 
-        <h3 class="text-3xl font-black mb-3">
+        <h3 class="text-3xl font-black mb-4">
           Shopify Experts
         </h3>
 
-        <p class="text-sm leading-relaxed opacity-90">
-          High-converting stores built for speed, luxury design,
-          and international scaling.
+        <p class="leading-relaxed opacity-90">
+
+          Luxury Shopify stores with high-speed performance,
+          premium UI/UX, and conversion-focused design.
+
         </p>
 
       </div>
@@ -285,7 +396,7 @@ body{
 
     <div class="text-center mb-16">
 
-      <h2 class="text-4xl md:text-6xl font-black mb-5">
+      <h2 class="section-title text-5xl md:text-6xl font-black mb-5">
 
         OUR <span class="text-blue-500">SERVICES</span>
 
@@ -293,17 +404,17 @@ body{
 
       <p class="text-gray-500 max-w-2xl mx-auto">
 
-        Everything you need to build and scale your online business.
+        Powerful digital services designed to scale your business.
 
       </p>
 
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 service-grid">
 
       <!-- CARD -->
 
-      <div class="service-card bg-white p-8 rounded-3xl border border-gray-200">
+      <div class="service-card bg-white p-8 rounded-[30px] border border-gray-200">
 
         <div class="w-16 h-16 rounded-2xl blue-gradient flex items-center justify-center text-white text-2xl mb-6">
 
@@ -315,10 +426,9 @@ body{
           Web Development
         </h3>
 
-        <p class="text-gray-500 text-sm leading-relaxed">
+        <p class="text-gray-500 leading-relaxed">
 
-          Premium websites with fast speed, responsive design,
-          and high conversion layouts.
+          Premium responsive websites with high-speed performance.
 
         </p>
 
@@ -326,7 +436,7 @@ body{
 
       <!-- CARD -->
 
-      <div class="service-card bg-white p-8 rounded-3xl border border-gray-200">
+      <div class="service-card bg-white p-8 rounded-[30px] border border-gray-200">
 
         <div class="w-16 h-16 rounded-2xl blue-gradient flex items-center justify-center text-white text-2xl mb-6">
 
@@ -338,10 +448,9 @@ body{
           AI Automation
         </h3>
 
-        <p class="text-gray-500 text-sm leading-relaxed">
+        <p class="text-gray-500 leading-relaxed">
 
-          Smart AI workflows, chatbots, and automation systems
-          for businesses.
+          AI chatbots, workflows, and smart automation systems.
 
         </p>
 
@@ -349,7 +458,7 @@ body{
 
       <!-- CARD -->
 
-      <div class="service-card bg-white p-8 rounded-3xl border border-gray-200">
+      <div class="service-card bg-white p-8 rounded-[30px] border border-gray-200">
 
         <div class="w-16 h-16 rounded-2xl blue-gradient flex items-center justify-center text-white text-2xl mb-6">
 
@@ -361,10 +470,9 @@ body{
           Ads Management
         </h3>
 
-        <p class="text-gray-500 text-sm leading-relaxed">
+        <p class="text-gray-500 leading-relaxed">
 
-          Meta & Google ads designed to scale revenue
-          with better ROI.
+          Meta and Google ads optimized for better ROI.
 
         </p>
 
@@ -372,7 +480,7 @@ body{
 
       <!-- CARD -->
 
-      <div class="service-card bg-white p-8 rounded-3xl border border-gray-200">
+      <div class="service-card bg-white p-8 rounded-[30px] border border-gray-200">
 
         <div class="w-16 h-16 rounded-2xl blue-gradient flex items-center justify-center text-white text-2xl mb-6">
 
@@ -384,10 +492,9 @@ body{
           Content Creation
         </h3>
 
-        <p class="text-gray-500 text-sm leading-relaxed">
+        <p class="text-gray-500 leading-relaxed">
 
-          Viral reels, premium creatives, thumbnails,
-          and branding content.
+          Reels, creatives, branding videos, and social media content.
 
         </p>
 
@@ -407,45 +514,43 @@ body{
 
     <div class="text-center mb-16">
 
-      <h2 class="text-4xl md:text-6xl font-black mb-5">
+      <h2 class="section-title text-5xl md:text-6xl font-black mb-5">
 
         PRICING <span class="text-blue-500">PLANS</span>
 
       </h2>
 
       <p class="text-gray-500">
-
-        Flexible plans for every business stage.
-
+        Flexible plans for businesses.
       </p>
 
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 pricing-grid">
 
       <!-- BASIC -->
 
-      <div class="price-card border border-gray-200 rounded-3xl p-10">
+      <div class="price-card border border-gray-200 rounded-[32px] p-10">
 
         <h3 class="text-3xl font-black mb-4">
           Basic
         </h3>
 
-        <div class="text-5xl font-black mb-6">
+        <div class="text-5xl font-black mb-8">
           $399
         </div>
 
         <ul class="space-y-4 text-gray-600 mb-10">
 
           <li>✔ 3 Pages Website</li>
-          <li>✔ Responsive Design</li>
+          <li>✔ Mobile Responsive</li>
           <li>✔ Contact Form</li>
           <li>✔ Speed Optimization</li>
 
         </ul>
 
         <a href="#contact"
-        class="blue-gradient block text-center text-white py-4 rounded-2xl font-bold">
+        class="main-btn blue-gradient w-full">
 
           Get Started
 
@@ -455,7 +560,7 @@ body{
 
       <!-- STANDARD -->
 
-      <div class="price-card border-2 border-blue-500 rounded-3xl p-10 relative">
+      <div class="price-card border-2 border-blue-500 rounded-[32px] p-10 relative">
 
         <div class="absolute top-5 right-5 bg-blue-500 text-white text-xs px-4 py-2 rounded-full font-bold">
 
@@ -467,7 +572,7 @@ body{
           Standard
         </h3>
 
-        <div class="text-5xl font-black mb-6">
+        <div class="text-5xl font-black mb-8">
           $799
         </div>
 
@@ -475,13 +580,13 @@ body{
 
           <li>✔ 7 Pages Website</li>
           <li>✔ Premium UI/UX</li>
-          <li>✔ SEO Optimization</li>
-          <li>✔ Analytics Setup</li>
+          <li>✔ SEO Setup</li>
+          <li>✔ Analytics</li>
 
         </ul>
 
         <a href="#contact"
-        class="blue-gradient block text-center text-white py-4 rounded-2xl font-bold">
+        class="main-btn blue-gradient w-full">
 
           Get Started
 
@@ -491,13 +596,13 @@ body{
 
       <!-- PREMIUM -->
 
-      <div class="price-card border border-gray-200 rounded-3xl p-10">
+      <div class="price-card border border-gray-200 rounded-[32px] p-10">
 
         <h3 class="text-3xl font-black mb-4">
           Premium
         </h3>
 
-        <div class="text-5xl font-black mb-6">
+        <div class="text-5xl font-black mb-8">
           $1299
         </div>
 
@@ -505,13 +610,13 @@ body{
 
           <li>✔ Advanced UI/UX</li>
           <li>✔ AI Systems</li>
-          <li>✔ Advanced SEO</li>
+          <li>✔ Premium SEO</li>
           <li>✔ Priority Support</li>
 
         </ul>
 
         <a href="#contact"
-        class="blue-gradient block text-center text-white py-4 rounded-2xl font-bold">
+        class="main-btn blue-gradient w-full">
 
           Get Started
 
@@ -531,11 +636,11 @@ body{
 
   <div class="max-w-4xl mx-auto">
 
-    <div class="contact-box bg-white rounded-[35px] p-8 md:p-14 border border-gray-200">
+    <div class="contact-box p-8 md:p-14 border border-gray-200">
 
       <div class="text-center mb-12">
 
-        <h2 class="text-4xl md:text-5xl font-black mb-4">
+        <h2 class="section-title text-5xl font-black mb-4">
 
           CONTACT <span class="text-blue-500">US</span>
 
@@ -543,7 +648,7 @@ body{
 
         <p class="text-gray-500">
 
-          Fill the form below and let's grow your business.
+          Fill out the form below to start your project.
 
         </p>
 
@@ -551,7 +656,7 @@ body{
 
       <form action="https://formsubmit.co/ajazkhanllcusa@gmail.com"
       method="POST"
-      class="grid md:grid-cols-2 gap-6">
+      class="grid md:grid-cols-2 gap-6 contact-grid">
 
         <input type="hidden" name="_captcha" value="false">
 
@@ -559,33 +664,33 @@ body{
         name="name"
         required
         placeholder="Full Name"
-        class="bg-gray-100 rounded-2xl px-5 py-4 outline-none">
+        class="input">
 
         <input type="email"
         name="email"
         required
         placeholder="Email Address"
-        class="bg-gray-100 rounded-2xl px-5 py-4 outline-none">
+        class="input">
 
         <input type="tel"
         name="phone"
         required
         placeholder="Phone Number"
-        class="bg-gray-100 rounded-2xl px-5 py-4 outline-none">
+        class="input">
 
         <input type="url"
         name="website"
         placeholder="Website / Social Media"
-        class="bg-gray-100 rounded-2xl px-5 py-4 outline-none">
+        class="input">
 
         <textarea
         name="message"
         rows="5"
         placeholder="Tell us about your project..."
-        class="md:col-span-2 bg-gray-100 rounded-2xl px-5 py-4 outline-none"></textarea>
+        class="input md:col-span-2"></textarea>
 
         <button type="submit"
-        class="md:col-span-2 blue-gradient text-white py-5 rounded-2xl font-bold text-lg hover:scale-[1.02] transition">
+        class="blue-gradient text-white py-5 rounded-2xl font-bold text-lg md:col-span-2">
 
           SEND REQUEST
 
@@ -603,14 +708,14 @@ body{
 
 <footer class="bg-white border-t border-gray-200 py-10 px-5">
 
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-6 footer-wrap">
 
-    <div class="text-2xl font-black italic">
+    <div class="logo">
       <span class="text-blue-500">MAX</span>
       <span>GROWTH</span>
     </div>
 
-    <div class="flex items-center gap-6 text-xl">
+    <div class="flex items-center gap-6 text-2xl">
 
       <a href="https://www.instagram.com/sweerty.567/" class="hover:text-pink-500 transition">
         <i class="fab fa-instagram"></i>
@@ -626,7 +731,7 @@ body{
 
     </div>
 
-    <p class="text-gray-500 text-sm text-center">
+    <p class="text-gray-500 text-sm">
       © 2026 Max Growth Agency. All Rights Reserved.
     </p>
 
@@ -639,7 +744,9 @@ body{
 <script>
 
 function toggleMenu(){
-  document.getElementById("mobileMenu").classList.toggle("hidden");
+
+  document.getElementById("mobileMenu").classList.toggle("active");
+
 }
 
 </script>
