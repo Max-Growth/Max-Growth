@@ -3,178 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Growth | Official Agency - UK & International Shopify Specialists</title>
-    
+    <title>Max Growth | Professional Agency</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #030712; color: #ffffff; overflow-x: hidden; }
         .pink-bg { background-color: #ff007f; }
         .blue-gradient { background: linear-gradient(90deg, #0057ff, #00a2ff); }
-        .hero-title { line-height: 0.9; letter-spacing: -2px; }
-        
-        /* Modal Style for Popup Form */
+        .hero-title { line-height: 1.1; letter-spacing: -1px; }
         .modal { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
         .modal-active { opacity: 1 !important; pointer-events: auto !important; transform: scale(1) !important; }
-        
-        /* Footer Visual Reference Placeholder Style */
-        .image-placeholder { background-color: #111827; border: 2px dashed #374151; display: flex; align-items: center; justify-content: center; color: #4b5563; }
+        .service-card:hover { border-color: #00a2ff; box-shadow: 0 0 20px rgba(0, 162, 255, 0.2); transition: 0.3s; }
     </style>
 </head>
-<body class="relative">
+<body>
 
-    <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-3xl font-black italic tracking-tighter flex items-center gap-1">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl md:text-3xl font-black italic tracking-tighter flex items-center gap-1">
                 <span class="text-blue-500">MAX</span><span>GROWTH</span>
             </div>
-            
-            <div class="space-x-8 flex items-center">
-                <div class="hidden md:flex space-x-6 text-sm uppercase tracking-widest font-semibold text-gray-300">
-                    <a href="#services" class="hover:text-white transition">Services</a>
-                    <a href="https://wa.me/918920327008?text=Hello%20Max%20Growth%20Team!%20I'm%20interested%20in%20scaling%20my%20business." class="hover:text-white transition flex items-center gap-2"><i class="fab fa-whatsapp"></i> Chat</a>
-                </div>
-                <button onclick="toggleModal()" class="blue-gradient px-8 py-3 rounded-full text-white font-black hover:shadow-[0_0_20px_#00a2ff] transition flex items-center gap-2">
-                    CONTACT <i class="fas fa-chevron-right text-xs"></i>
-                </button>
-            </div>
+            <button onclick="toggleModal()" class="blue-gradient px-6 md:px-8 py-2 md:py-3 rounded-full text-white font-bold text-sm md:text-base hover:shadow-[0_0_20px_#00a2ff] transition flex items-center gap-2">
+                CONTACT <i class="fas fa-chevron-right text-[10px]"></i>
+            </button>
         </div>
     </nav>
 
-    <section class="h-screen flex items-center justify-center text-center px-6 pt-24 pb-16 relative">
-        <div class="absolute inset-0 z-0 bg-[url('your-background-visual.jpg')] bg-cover bg-center opacity-10"></div>
-        <div class="relative z-10 max-w-4xl">
-            <div class="flex items-center justify-center gap-4 mb-12">
-                <a href="#" class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-facebook-f text-white"></i></a>
-                <a href="https://www.instagram.com/sweerty.567/" class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-instagram text-white"></i></a>
-                <a href="#" class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition"><i class="fab fa-youtube text-white"></i></a>
+    <section class="min-h-screen flex items-center justify-center text-center px-4 pt-32 pb-20">
+        <div class="max-w-4xl">
+            <div class="flex items-center justify-center gap-4 mb-8">
+                <a href="https://www.facebook.com" class="bg-gray-900 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-blue-600 transition"><i class="fab fa-facebook-f text-white text-sm"></i></a>
+                <a href="https://www.instagram.com/sweerty.567/" class="bg-gray-900 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-pink-600 transition"><i class="fab fa-instagram text-white text-sm"></i></a>
+                <a href="https://www.youtube.com" class="bg-gray-900 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-600 transition"><i class="fab fa-youtube text-white text-sm"></i></a>
             </div>
             
-            <h1 class="text-6xl md:text-8xl font-black hero-title mb-8">
+            <h1 class="text-4xl md:text-7xl font-black hero-title mb-6">
                 We Don't <br>
-                <span class="pink-bg px-4 inline-block transform -rotate-1 text-white">Just Run</span><br>
+                <span class="pink-bg px-3 inline-block transform -rotate-1 text-white">Just Run</span><br>
                 Ads. We Build Empires.
             </h1>
             
-            <p class="max-w-xl text-gray-400 text-lg md:text-xl mx-auto mb-12">
-                Helping Shopify brands scale globally with <span class="text-white font-bold">AI-driven marketing systems</span> and conversion-focused store designs.
+            <p class="max-w-xl text-gray-400 text-sm md:text-lg mx-auto mb-10 leading-relaxed">
+                Helping Shopify brands scale globally with <span class="text-white font-bold italic">AI-driven marketing systems</span> and conversion-focused designs.
             </p>
             
-            <a href="https://wa.me/918920327008?text=Hello%20Max%20Growth%20Team!%20I'm%20interested%20in%20scaling%20my%20business." 
-               class="blue-gradient text-white font-black px-12 py-5 rounded-full text-xl hover:shadow-[0_0_25px_#00a2ff] transition flex items-center gap-3 mx-auto max-w-max">
+            <a href="https://wa.me/918920327008?text=Auto:%20Hi%20Max%20Growth,%20I'm%20interested%20in%20your%20services!" 
+               class="blue-gradient text-white font-black px-10 py-4 rounded-full text-base md:text-lg hover:shadow-[0_0_25px_#00a2ff] transition flex items-center gap-3 mx-auto max-w-max">
                 CHAT ON WHATSAPP <i class="fab fa-whatsapp"></i>
             </a>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-gray-950/50 relative">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-            <div class="bg-gray-900 p-10 rounded-3xl border border-gray-800 card-box">
-                <h3 class="text-3xl font-extrabold mb-4 leading-tight">Average ROI Increase <br> For Clients</h3>
-                <div class="text-8xl font-black text-pink-500 mb-6">154.8%</div>
-                <p class="text-gray-500">AI-powered analytics continuously optimizes performance and reduces cost.</p>
+    <section class="py-10 px-4 bg-gray-950/50">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+            <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 text-center md:text-left">
+                <h3 class="text-xl md:text-2xl font-extrabold mb-2 text-gray-300">Average ROI Increase</h3>
+                <div class="text-5xl md:text-6xl font-black text-pink-500 mb-2">154.8%</div>
+                <p class="text-gray-500 text-xs md:text-sm leading-tight">AI-powered analytics optimizes performance daily.</p>
             </div>
             
-            <div class="bg-gray-900 p-10 rounded-3xl border border-gray-800 card-box">
-                <h3 class="text-3xl font-extrabold mb-4 leading-tight">Shopify Store <br> & Product Hunting</h3>
-                <p class="text-gray-400 mb-8 max-w-xl">We don't just build sites; we build high-speed conversion machines optimized for global markets.</p>
-                <button class="bg-white text-black px-8 py-3 rounded-full font-bold uppercase text-sm">Build Your Store</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-24 px-6 bg-gray-900 relative">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-extrabold mb-16 tracking-tight">Our Scale Systems</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card p-10 border border-gray-800 rounded-3xl bg-black">
-                    <h4 class="text-2xl font-bold mb-3 text-blue-400 uppercase">Shopify Dev</h4>
-                    <p class="text-gray-400 text-sm">Custom Liquid programming for ultimate speed and specific market optimization.</p>
-                </div>
-                <div class="service-card p-10 border border-gray-800 rounded-3xl bg-black">
-                    <h4 class="text-2xl font-bold mb-3 text-blue-400 uppercase">AI Analytics</h4>
-                    <p class="text-gray-400 text-sm">Real-time data streams optimized by AI to reduce CPA and maximize conversion.</p>
-                </div>
-                <div class="service-card p-10 border border-gray-800 rounded-3xl bg-black">
-                    <h4 class="text-2xl font-bold mb-3 text-blue-400 uppercase">CRO Audit</h4>
-                    <p class="text-gray-400 text-sm">Identify conversion leaks in your store's funnel and implement solutions.</p>
-                </div>
+            <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 text-center md:text-left">
+                <h3 class="text-xl md:text-2xl font-extrabold mb-2 text-gray-300">Shopify Dev</h3>
+                <p class="text-gray-400 text-xs md:text-sm mb-6">High-speed conversion machines for global markets.</p>
+                <button class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase">Build Your Store</button>
             </div>
         </div>
     </section>
 
-    <div id="contactModal" class="modal fixed inset-0 z-[100] h-full w-full bg-black/90 backdrop-blur-sm opacity-0 pointer-events-none scale-90 flex items-center justify-center p-6">
-        <div class="relative bg-gray-950 p-10 rounded-3xl border border-gray-800 shadow-[0_0_50px_#00a2ff] max-w-xl w-full">
-            <button onclick="toggleModal()" class="absolute top-5 right-5 text-gray-500 hover:text-white transition"><i class="fas fa-times text-xl"></i></button>
+    <section id="services" class="py-20 px-4 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 italic">OUR <span class="text-blue-500">SCALE</span> SYSTEMS</h2>
+                <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="service-card p-8 border border-gray-800 rounded-2xl bg-black transition">
+                    <i class="fab fa-shopify text-blue-500 text-3xl mb-4"></i>
+                    <h4 class="text-lg font-bold mb-3 uppercase tracking-tighter">Liquid Programming</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">Custom Shopify development focused on extreme load speeds and conversion rate optimization.</p>
+                </div>
+                <div class="service-card p-8 border border-gray-800 rounded-2xl bg-black transition">
+                    <i class="fas fa-microchip text-blue-500 text-3xl mb-4"></i>
+                    <h4 class="text-lg font-bold mb-3 uppercase tracking-tighter">AI Ad Systems</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">Smart algorithms to reduce your CPA while scaling budgets across international regions.</p>
+                </div>
+                <div class="service-card p-8 border border-gray-800 rounded-2xl bg-black transition">
+                    <i class="fas fa-search-dollar text-blue-500 text-3xl mb-4"></i>
+                    <h4 class="text-lg font-bold mb-3 uppercase tracking-tighter">Audit & Scale</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">Deep-dive funnel analysis to fix leaks and prepare your brand for multi-million dollar scaling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="contactModal" class="modal fixed inset-0 z-[100] h-full w-full bg-black/90 backdrop-blur-sm opacity-0 pointer-events-none scale-95 flex items-center justify-center p-4">
+        <div class="relative bg-[#050b18] p-8 md:p-10 rounded-3xl border border-blue-900/50 shadow-[0_0_40px_rgba(0,162,255,0.3)] max-w-md w-full">
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white"><i class="fas fa-times"></i></button>
             
-            <h2 class="text-4xl font-extrabold mb-8 text-center text-blue-400">Get Free Consultation</h2>
+            <h2 class="text-3xl font-black mb-2 text-center text-blue-500 italic">Get Free Consultation</h2>
+            <p class="text-center text-gray-500 text-xs mb-8">Fill the details to scale your business.</p>
             
-            <form action="https://formsubmit.co/ajazkhanllcusa@gmail.com" method="POST" class="space-y-6">
+            <form action="https://formsubmit.co/ajazkhanllcusa@gmail.com" method="POST" class="space-y-4">
                 <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="name" placeholder="Full Name" required class="w-full px-5 py-3 rounded-xl bg-gray-900/50 border border-gray-800 text-white placeholder:text-gray-600 focus:border-blue-500 outline-none text-sm">
+                <input type="email" name="email" placeholder="Email Address" required class="w-full px-5 py-3 rounded-xl bg-gray-900/50 border border-gray-800 text-white placeholder:text-gray-600 focus:border-blue-500 outline-none text-sm">
+                <input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-5 py-3 rounded-xl bg-gray-900/50 border border-gray-800 text-white placeholder:text-gray-600 focus:border-blue-500 outline-none text-sm">
+                <textarea name="message" placeholder="Your Business Goals..." required rows="3" class="w-full px-5 py-3 rounded-xl bg-gray-900/50 border border-gray-800 text-white placeholder:text-gray-600 focus:border-blue-500 outline-none text-sm"></textarea>
                 
-                <input type="text" name="name" placeholder="Full Name" required class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder:text-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-                <input type="email" name="email" placeholder="Email Address" required class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder:text-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-                <input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder:text-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-                <textarea name="message" placeholder="Tell us about your business goals..." required rows="4" class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder:text-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"></textarea>
-                
-                <button type="submit" class="w-full blue-gradient text-white font-black px-10 py-4 rounded-full text-lg hover:shadow-[0_0_20px_#00a2ff] transition">
+                <button type="submit" class="w-full blue-gradient text-white font-black py-4 rounded-xl text-sm hover:shadow-[0_0_20px_#00a2ff] transition uppercase tracking-widest">
                     SEND REQUEST
                 </button>
             </form>
         </div>
     </div>
 
-    <footer class="py-24 px-6 border-t border-gray-800 bg-gray-950 relative">
+    <footer class="py-16 px-4 border-t border-gray-900 bg-gray-950">
         <div class="max-w-7xl mx-auto">
-            <div class="image-placeholder h-48 rounded-2xl mb-16 text-xs uppercase tracking-widest">[Get In Touch Visual Image - Place your graphic here]</div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
-                <div class="space-y-6 col-span-2 md:col-span-1">
-                    <div class="text-3xl font-black italic tracking-tighter flex items-center gap-1">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
+                <div class="space-y-6">
+                    <div class="text-2xl font-black italic tracking-tighter flex items-center gap-1">
                         <span class="text-blue-500">MAX</span><span>GROWTH</span>
                     </div>
-                    <p class="text-gray-500 text-xs">Official Agency Partner. London - UK & Global Clients.</p>
-                    <div class="flex items-center gap-3">
-                        <a href="#" class="text-gray-600 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/sweerty.567/" class="text-gray-600 hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-600 hover:text-white transition"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed italic">Official Agency Partner. London - UK & Global Clients.</p>
                 </div>
                 
-                <div class="space-y-4">
-                    <h5 class="text-lg font-extrabold uppercase tracking-widest mb-6">Social</h5>
-                    <p class="text-gray-500 font-medium">Link 1</p>
-                    <p class="text-gray-500 font-medium">Link 2</p>
-                    <p class="text-gray-500 font-medium">Link 3</p>
+                <div>
+                    <h5 class="text-blue-500 font-black uppercase tracking-tighter mb-6">Social</h5>
+                    <ul class="space-y-3 text-gray-500 font-bold">
+                        <li><a href="https://www.facebook.com" class="hover:text-white transition">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/sweerty.567/" class="hover:text-white transition">Instagram</a></li>
+                        <li><a href="https://www.youtube.com" class="hover:text-white transition">YouTube</a></li>
+                    </ul>
                 </div>
                 
-                <div class="space-y-4">
-                    <h5 class="text-lg font-extrabold uppercase tracking-widest mb-6">Page</h5>
-                    <p class="text-gray-500 font-medium">Home</p>
-                    <p class="text-gray-500 font-medium">About</p>
-                    <p class="text-gray-500 font-medium">Results</p>
+                <div>
+                    <h5 class="text-blue-500 font-black uppercase tracking-tighter mb-6">Page</h5>
+                    <ul class="space-y-3 text-gray-500 font-bold">
+                        <li><a href="#" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Results</a></li>
+                    </ul>
                 </div>
                 
-                <div class="space-y-6 col-span-2 md:col-span-1 border-l border-gray-800 pl-8">
-                    <h5 class="text-lg font-extrabold uppercase tracking-widest mb-6">Contact</h5>
-                    <div class="flex items-center gap-3 text-gray-400 group">
-                        <i class="fas fa-envelope text-blue-400"></i>
-                        <a href="mailto:ajazkhanllcusa@gmail.com" class="hover:text-white transition break-words">ajazkhanllcusa@gmail.com</a>
+                <div class="space-y-6">
+                    <h5 class="text-blue-500 font-black uppercase tracking-tighter mb-6">Contact</h5>
+                    <div class="flex items-center gap-3 text-gray-500">
+                        <i class="fas fa-envelope text-blue-500"></i>
+                        <a href="mailto:ajazkhanllcusa@gmail.com" class="hover:text-white transition font-bold text-[11px] md:text-sm">ajazkhanllcusa@gmail.com</a>
                     </div>
-                    <div class="flex items-center gap-3 text-gray-400 group">
-                        <i class="fab fa-whatsapp text-green-400 text-lg"></i>
-                        <a href="https://wa.me/918920327008?text=Hello%20Max%20Growth%20Team!%20I'm%20interested%20in%20scaling%20my%20business." class="hover:text-white transition">+91 89203 27008</a>
+                    <div class="flex items-center gap-3 text-gray-500">
+                        <i class="fab fa-whatsapp text-green-500 text-lg"></i>
+                        <a href="https://wa.me/918920327008?text=Auto:%20Hi!" class="hover:text-white transition font-bold">+91 89203 27008</a>
                     </div>
-                    <p class="text-gray-600 text-xs">Mon-Sat | 9 AM - 6 PM (GMT)</p>
                 </div>
             </div>
             
-            <div class="mt-20 pt-10 border-t border-gray-900 text-center text-gray-600 text-xs uppercase tracking-widest">
-                © 2026 Max Growth Agency. London, UK | Scalup Inc. Partner
+            <div class="mt-16 pt-8 border-t border-gray-900 text-center text-gray-700 text-[10px] uppercase tracking-[4px]">
+                © 2026 Max Growth Agency. All Rights Reserved.
             </div>
         </div>
     </footer>
