@@ -313,6 +313,457 @@ body{
     </div>
 </nav>
 
+<!-- ================= REPLACE OLD NAVBAR WITH THIS ================= -->
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+
+  <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+
+    <div class="text-2xl md:text-3xl font-black italic tracking-tighter flex items-center gap-1">
+      <span class="text-blue-500">MAX</span>
+      <span class="text-black">GROWTH</span>
+    </div>
+
+    <!-- MENU BUTTON -->
+    <button onclick="toggleMenu()" class="flex flex-col gap-1.5">
+
+      <span class="w-7 h-[3px] bg-black rounded-full"></span>
+      <span class="w-7 h-[3px] bg-black rounded-full"></span>
+      <span class="w-7 h-[3px] bg-black rounded-full"></span>
+
+    </button>
+
+  </div>
+
+  <!-- MENU -->
+  <div id="mobileMenu"
+    class="hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-2xl">
+
+    <div class="flex flex-col gap-6 p-8 text-lg font-semibold">
+
+      <a href="#home" class="hover:text-blue-500 transition">
+        Home
+      </a>
+
+      <a href="#servicesSection" class="hover:text-blue-500 transition">
+        Services
+      </a>
+
+      <a href="#contactSection" class="hover:text-blue-500 transition">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+
+<!-- ================= REPLACE HERO SECTION OPENING WITH THIS ================= -->
+
+<section id="home"
+class="min-h-screen flex items-center justify-center text-center px-4 pt-32 pb-20 bg-white">
+
+
+
+<!-- ================= ADD THIS CSS INSIDE <style> ================= -->
+
+.service-box{
+  transition:.5s;
+  transform:translateY(40px);
+  opacity:0;
+  animation:fadeUp 1s forwards;
+}
+
+.service-box:nth-child(1){
+  animation-delay:.2s;
+}
+
+.service-box:nth-child(2){
+  animation-delay:.4s;
+}
+
+.service-box:nth-child(3){
+  animation-delay:.6s;
+}
+
+.service-box:nth-child(4){
+  animation-delay:.8s;
+}
+
+.service-box:hover{
+  transform:translateY(-15px) scale(1.03);
+  box-shadow:0 30px 80px rgba(0,102,255,.18);
+}
+
+.service-details{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .5s ease;
+}
+
+.service-box.active .service-details{
+  max-height:500px;
+  margin-top:20px;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(50px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* FIX PRICING TABLE */
+
+.pricing-wrap{
+  position:relative;
+  z-index:10;
+}
+
+.pricing-box{
+  opacity:1 !important;
+  transform:translateY(0) !important;
+}
+
+/* CONTACT */
+
+.contact-pro{
+  background:linear-gradient(to bottom,#ffffff,#f3f4f6);
+}
+
+.contact-card{
+  background:#fff;
+  border-radius:30px;
+  box-shadow:0 30px 80px rgba(0,0,0,.08);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .service-box{
+    padding:28px 22px;
+  }
+
+}
+
+
+
+/* ================= REPLACE OLD SERVICES SECTION WITH THIS ================= -->
+
+<section id="servicesSection" class="py-24 px-4 bg-gradient-to-b from-white to-gray-100">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-16">
+
+      <h2 class="text-4xl md:text-6xl font-black text-black mb-5">
+        OUR <span class="text-blue-500">SERVICES</span>
+      </h2>
+
+      <p class="text-gray-500 max-w-2xl mx-auto">
+        Powerful digital solutions designed to help your business scale globally.
+      </p>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- WEB DEV -->
+
+      <div class="service-box bg-white rounded-3xl p-8 shadow-lg border border-gray-200 cursor-pointer">
+
+        <div class="w-16 h-16 rounded-2xl blue-gradient flex items-center justify-center mb-6 text-white text-2xl">
+          <i class="fas fa-code"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-black mb-4">
+          Web Developer
+        </h3>
+
+        <p class="text-gray-500 text-sm mb-4">
+          Modern high-converting websites with premium UI/UX.
+        </p>
+
+        <div class="service-details">
+
+          <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
+
+            <li>✔ Shopify Development</li>
+            <li>✔ Responsive Mobile Design</li>
+            <li>✔ High Speed Optimization</li>
+            <li>✔ SEO Friendly Structure</li>
+            <li>✔ Luxury UI/UX Design</li>
+            <li>✔ Premium Landing Pages</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- AI -->
+
+      <div class="service-box bg-white rounded-3xl p-8 shadow-lg border border-gray-200 cursor-pointer">
+
+        <div class="w-16 h-16 rounded-2xl blue-gradient flex items-center justify-center mb-6 text-white text-2xl">
+          <i class="fas fa-robot"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-black mb-4">
+          AI Automations
+        </h3>
+
+        <p class="text-gray-500 text-sm mb-4">
+          Smart AI systems to automate workflows & support.
+        </p>
+
+        <div class="service-details">
+
+          <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
+
+            <li>✔ AI Chatbots</li>
+            <li>✔ Customer Support Systems</li>
+            <li>✔ AI Email Automation</li>
+            <li>✔ CRM Automation</li>
+            <li>✔ Smart Lead Generation</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- ADS -->
+
+      <div class="service-box bg-white rounded-3xl p-8 shadow-lg border border-gray-200 cursor-pointer">
+
+        <div class="w-16 h-16 rounded-2xl blue-gradient flex items-center justify-center mb-6 text-white text-2xl">
+          <i class="fas fa-bullhorn"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-black mb-4">
+          Ads Management
+        </h3>
+
+        <p class="text-gray-500 text-sm mb-4">
+          Scale your business with powerful paid advertising.
+        </p>
+
+        <div class="service-details">
+
+          <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
+
+            <li>✔ Meta Ads</li>
+            <li>✔ Google Ads</li>
+            <li>✔ Retargeting Campaigns</li>
+            <li>✔ Conversion Tracking</li>
+            <li>✔ ROI Optimization</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- CONTENT -->
+
+      <div class="service-box bg-white rounded-3xl p-8 shadow-lg border border-gray-200 cursor-pointer">
+
+        <div class="w-16 h-16 rounded-2xl blue-gradient flex items-center justify-center mb-6 text-white text-2xl">
+          <i class="fas fa-photo-video"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-black mb-4">
+          Content Creation
+        </h3>
+
+        <p class="text-gray-500 text-sm mb-4">
+          Premium visual content designed for engagement.
+        </p>
+
+        <div class="service-details">
+
+          <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
+
+            <li>✔ Social Media Reels</li>
+            <li>✔ Product Creatives</li>
+            <li>✔ Branding Videos</li>
+            <li>✔ Thumbnail Design</li>
+            <li>✔ Viral Content Strategy</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= ADD THIS CONTACT SECTION BEFORE FOOTER ================= -->
+
+<section id="contactSection" class="contact-pro py-24 px-4">
+
+  <div class="max-w-4xl mx-auto">
+
+    <div class="contact-card p-8 md:p-14 border border-gray-200">
+
+      <div class="text-center mb-10">
+
+        <h2 class="text-4xl md:text-5xl font-black text-black mb-4">
+          CONTACT <span class="text-blue-500">US</span>
+        </h2>
+
+        <p class="text-gray-500">
+          Fill out the form below and let's scale your business.
+        </p>
+
+      </div>
+
+      <form action="https://formsubmit.co/ajazkhanllcusa@gmail.com"
+        method="POST"
+        class="grid md:grid-cols-2 gap-6">
+
+        <input type="hidden" name="_captcha" value="false">
+
+        <input type="text"
+          name="name"
+          placeholder="Full Name"
+          required
+          class="w-full bg-gray-100 border border-gray-300 rounded-2xl px-5 py-4 outline-none text-black">
+
+        <input type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+          class="w-full bg-gray-100 border border-gray-300 rounded-2xl px-5 py-4 outline-none text-black">
+
+        <input type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          required
+          class="w-full bg-gray-100 border border-gray-300 rounded-2xl px-5 py-4 outline-none text-black">
+
+        <input type="url"
+          name="website"
+          placeholder="Website / Social Media Link"
+          required
+          class="w-full bg-gray-100 border border-gray-300 rounded-2xl px-5 py-4 outline-none text-black">
+
+        <div class="md:col-span-2">
+
+          <label class="block text-black font-semibold mb-3">
+            Select Your Budget
+          </label>
+
+          <select name="budget"
+            class="w-full bg-gray-100 border border-gray-300 rounded-2xl px-5 py-4 outline-none text-black">
+
+            <option>$299</option>
+            <option>$499</option>
+            <option>$799</option>
+            <option>$1200</option>
+            <option>$1800</option>
+            <option>$2800</option>
+
+          </select>
+
+        </div>
+
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Tell us about your project..."
+          class="md:col-span-2 w-full bg-gray-100 border border-gray-300 rounded-2xl px-5 py-4 outline-none text-black"></textarea>
+
+        <button type="submit"
+          class="md:col-span-2 blue-gradient text-white py-5 rounded-2xl font-bold text-lg hover:scale-[1.02] transition">
+
+          SEND REQUEST
+
+        </button>
+
+      </form>
+
+      <!-- SOCIAL -->
+
+      <div class="flex items-center justify-center gap-5 mt-12">
+
+        <a href="https://www.instagram.com/sweerty.567/"
+          class="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center hover:bg-pink-500 hover:text-white transition text-xl">
+
+          <i class="fab fa-instagram"></i>
+
+        </a>
+
+        <a href="https://wa.me/918920327008"
+          class="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center hover:bg-green-500 hover:text-white transition text-xl">
+
+          <i class="fab fa-whatsapp"></i>
+
+        </a>
+
+        <a href="mailto:ajazkhanllcusa@gmail.com"
+          class="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center hover:bg-blue-500 hover:text-white transition text-xl">
+
+          <i class="fas fa-envelope"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= ADD THIS SCRIPT BEFORE </body> ================= -->
+
+<script>
+
+/* MENU */
+
+function toggleMenu(){
+
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+
+}
+
+/* SERVICE OPEN */
+
+const serviceBoxes = document.querySelectorAll('.service-box');
+
+serviceBoxes.forEach((box)=>{
+
+  box.addEventListener('click', ()=>{
+
+    box.classList.toggle('active');
+
+  });
+
+});
+
+</script>
+
 <!-- ================= HERO ================= -->
 
 <section class="min-h-screen flex items-center justify-center text-center px-4 pt-32 pb-20 bg-white">
