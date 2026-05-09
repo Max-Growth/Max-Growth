@@ -13,7 +13,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: #ffffff; color: #111827; overflow-x: hidden; }
 
-        /* Reduced Spacing Classes */
         .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
         @media (min-width: 768px) { .section-padding { padding-top: 4rem; padding-bottom: 4rem; } }
 
@@ -39,15 +38,21 @@
         .service-card:hover { border-color: #2563eb; transform: translateY(-5px); }
         .description-text { color: #10b981; font-size: 0.9rem; line-height: 1.4; margin-top: 10px; font-weight: 500; }
 
+        /* Skill Pill Styling */
+        .skill-pill { background: #f3f4f6; border: 1px solid #e5e7eb; padding: 8px 18px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; color: #374151; display: inline-block; margin: 4px; transition: 0.2s; }
+        .skill-pill:hover { background: #2563eb; color: white; border-color: #2563eb; }
+
         /* Form */
         .form-input { width: 100%; padding: 12px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; outline: none; }
         .form-input:focus { border-color: #2563eb; background: white; }
 
         /* FAQ */
         .faq-item { border-bottom: 1px solid #f3f4f6; }
-        .faq-question { width: 100%; padding: 15px 0; display: flex; justify-content: space-between; font-weight: 600; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s ease-out; color: #6b7280; font-size: 0.95rem; }
-        .faq-item.active .faq-answer { max-height: 150px; padding-bottom: 15px; }
+        .faq-question { width: 100%; padding: 18px 0; display: flex; justify-content: space-between; align-items: center; font-weight: 600; text-align: left; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s ease-out; color: #6b7280; font-size: 0.95rem; line-height: 1.6; }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 15px; }
+        .faq-item i { transition: transform 0.3s ease; }
+        .faq-item.active i { transform: rotate(45deg); color: #2563eb; }
 
         /* Footer */
         .footer-card { background-color: #000; color: #ffffff; margin: 20px 15px 0 15px; padding: 30px 20px 15px 20px; border-top-left-radius: 30px; border-top-right-radius: 30px; }
@@ -69,6 +74,7 @@
     <div id="fullMenu">
         <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
         <a href="#services" class="menu-link" onclick="toggleMenu()">SERVICES</a>
+        <a href="#skills" class="menu-link" onclick="toggleMenu()">SKILLS</a>
         <a href="#about" class="menu-link" onclick="toggleMenu()">ABOUT US</a>
         <a href="#contact" class="menu-link" onclick="toggleMenu()">CONTACT</a>
         <a href="#faq" class="menu-link" onclick="toggleMenu()">FAQ</a>
@@ -85,6 +91,38 @@
         <div class="video-container mx-auto"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/UbEMvRP_yJA?autoplay=1&mute=1&loop=1&playlist=UbEMvRP_yJA&controls=0" frameborder="0" allowfullscreen></iframe></div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding px-6 bg-white">
+        <div class="max-w-4xl mx-auto bg-gray-50 p-8 md:p-12 rounded-[40px] border border-gray-100">
+            <div class="mb-10">
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
+                    <span class="text-blue-600"><i class="fas fa-code"></i></span> Technical Tools
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill">Shopify Expert</span>
+                    <span class="skill-pill">WordPress</span>
+                    <span class="skill-pill">HTML5/CSS3</span>
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">C++ Programming</span>
+                    <span class="skill-pill">GitHub</span>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
+                    <span class="text-blue-600"><i class="fas fa-language"></i></span> Languages
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill">Hindi (Native)</span>
+                    <span class="skill-pill">Urdu (Native)</span>
+                    <span class="skill-pill">English (Professional)</span>
+                    <span class="skill-pill">Arabic (Basic)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
     <section id="services" class="section-padding px-6 bg-white">
         <div class="max-w-7xl mx-auto text-left mb-10">
             <h2 class="text-3xl md:text-5xl font-black italic uppercase">OUR <span class="text-blue-500">SERVICES</span></h2>
@@ -124,6 +162,7 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="section-padding px-6 bg-gray-50">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-10">
             <div class="w-full md:w-2/3 text-left">
@@ -141,6 +180,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section-padding px-6">
         <div class="max-w-7xl mx-auto">
             <div class="mb-10 text-left">
@@ -170,16 +210,29 @@
         </div>
     </section>
 
+    <!-- FAQ Section (Updated with 2 extra questions) -->
     <section id="faq" class="section-padding px-6 bg-white">
         <div class="max-w-4xl mx-auto text-left">
             <h2 class="text-3xl md:text-5xl font-black italic mb-8 uppercase">COMMON <span class="text-blue-500">QUESTIONS</span></h2>
+            
             <div class="faq-item" onclick="toggleFaq(this)">
                 <button class="faq-question">What platforms do you work with? <i class="fas fa-plus text-xs"></i></button>
                 <div class="faq-answer">We specialize in Shopify, custom builds, and WooCommerce solutions.</div>
             </div>
+            
             <div class="faq-item" onclick="toggleFaq(this)">
                 <button class="faq-question">How long until I see results? <i class="fas fa-plus text-xs"></i></button>
                 <div class="faq-answer">Trend data shows in 7-14 days, with scaling potential within the first month.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <button class="faq-question">Do I need to provide the ad creative? <i class="fas fa-plus text-xs"></i></button>
+                <div class="faq-answer">Not necessarily. We have an in-house content team that handles UGC, graphic design, and video editing to ensure your ads convert at the highest rate.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <button class="faq-question">What is your pricing model? <i class="fas fa-plus text-xs"></i></button>
+                <div class="faq-answer">We work on a flexible model including monthly retainers and performance-based incentives (Revenue Share) to ensure our goals are perfectly aligned with your growth.</div>
             </div>
         </div>
     </section>
@@ -233,11 +286,12 @@
         }
 
         function toggleFaq(item) {
+            // Close other FAQ items if one is opened
+            document.querySelectorAll('.faq-item').forEach(el => {
+                if(el !== item) el.classList.remove('active');
+            });
             item.classList.toggle('active');
-            const icon = item.querySelector('i');
-            icon.className = item.classList.contains('active') ? 'fas fa-minus text-xs' : 'fas fa-plus text-xs';
         }
     </script>
 </body>
 </html>
-
